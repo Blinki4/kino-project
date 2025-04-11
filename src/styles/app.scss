@@ -3,3 +3,9 @@
 @use 'fonts';
 @use 'blocks/navbar';
 
+body {
+  font-family: 'Graphik', sans-serif;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-size: 16px;
+}

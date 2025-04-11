@@ -2,9 +2,9 @@ import {FC} from "react";
 
 const Navbar: FC = () => {
     return (
-        <div className={'navbar'}>
+        <nav className={'navbar'}>
             NAVBAR
-        </div>
+        </nav>
     );
 };
 
