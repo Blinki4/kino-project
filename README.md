@@ -2,6 +2,7 @@
 
 ## Stack
 
+- React
 - Vite
 - Typescript
 - Zustand
