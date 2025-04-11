@@ -9,7 +9,7 @@
 - Jest
 - Axios
 - React-router-dom
-- Less
+- Scss
 
 ## Api
 
