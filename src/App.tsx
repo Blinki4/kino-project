@@ -1,7 +1,13 @@
+import Navbar from "./components/Navbar.tsx";
+
+
 function App() {
 
     return (
-        <h1 className={'navbar'}>Hello World!</h1>
+        <>
+            <Navbar/>
+            <h1>Hello World!</h1>
+        </>
     )
 }
 
