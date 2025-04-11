@@ -1,11 +1,15 @@
 @use 'normalize';
 @use 'variables';
+@use 'globals';
 @use 'fonts';
 @use 'blocks/navbar';
+@import 'mixins';
 
 body {
+  @include fluid-text(18, 16);
+
   font-family: 'Graphik', sans-serif;
+  font-weight: 400;
   background-color: var(--color-dark);
   color: var(--color-light);
-  font-size: 16px;
 }
