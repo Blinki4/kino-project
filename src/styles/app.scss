@@ -10,6 +10,10 @@
 body {
   @include fluid-text(18, 16);
 
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
   font-family: 'Graphik', sans-serif;
   font-weight: 400;
   background-color: var(--color-dark);

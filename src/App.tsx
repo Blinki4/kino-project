@@ -11,6 +11,7 @@ import {
     faUser
 } from "@fortawesome/free-solid-svg-icons";
 import {Route, Routes} from "react-router-dom";
+import MainPage from "./pages/MainPage.tsx";
 
 library.add(faS, faClapperboard, faFilm, faBookmark, faLaptop, faUser, faHouse, faMagnifyingGlass)
 
@@ -20,7 +21,7 @@ function App() {
         <>
             <Navbar/>
             <Routes>
-                <Route path={'/'} element={<>MAIN PAGE</>}/>
+                <Route path={'/'} element={<MainPage/>}/>
                 <Route path={'/films'} element={<>FILMS PAGE</>}/>
                 <Route path={'/series'} element={<>SERIES PAGE</>}/>
                 <Route path={'/my'} element={<>MY PAGE</>}/>
