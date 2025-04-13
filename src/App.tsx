@@ -1,10 +1,20 @@
 import Navbar from "./components/Navbar.tsx";
 import {library} from "@fortawesome/fontawesome-svg-core";
-import {faBookmark, faFilm, faHouse, faLaptop, faS, faTicket, faUser} from "@fortawesome/free-solid-svg-icons";
+import {
+    faBookmark,
+    faClapperboard,
+    faFilm,
+    faHouse,
+    faLaptop,
+    faMagnifyingGlass,
+    faS,
+    faUser
+} from "@fortawesome/free-solid-svg-icons";
 import {Route, Routes} from "react-router-dom";
 
+library.add(faS, faClapperboard, faFilm, faBookmark, faLaptop, faUser, faHouse, faMagnifyingGlass)
+
 function App() {
-    library.add(faS, faTicket, faFilm, faBookmark, faLaptop, faUser, faHouse)
 
     return (
         <>
