@@ -1,6 +1,18 @@
 :root {
   --color-dark: #121212;
   --color-light: #ffffff;
-  --color-gray: #b3b1b1;
-  --color-accent: #f05133;
+  --color-gray: #383838;
+  --color-accent: #f43f40;
+  //--color-accent: #f05133;
+
+  --border-radius-small: 8px;
+
+  --input-height: 32px;
+  --input-border: 2px solid var(--color-light);
+
+  --transition-duration: 0.2s;
+
+  --container-width: 1240px;
+  --container-padding-x: 20px;
+
 }
