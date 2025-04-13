@@ -4,6 +4,7 @@
 @use 'fonts';
 @use 'blocks/navbar';
 @import 'mixins';
+@import 'media';
 
 body {
   @include fluid-text(18, 16);
