@@ -1,3 +1,53 @@
+@import '../media';
+
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
   background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 2rem;
+  border-bottom: 2px solid var(--color-accent);
+
+  &__menu-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 40%;
+  }
+
+  &__menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-duration);
+
+    @include hover {
+
+      .navbar__menu-link {
+        color: var(--color-accent);
+      }
+
+      .navbar__menu-icon {
+        color: var(--color-accent);
+        transition: var(--transition-duration);
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__menu-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-light);
+    text-decoration: none;
+
+    transition: var(--transition-duration);
+  }
+
+  &__menu-title {
+    padding-right: 0.5rem;
+  }
 }
