@@ -1,12 +1,7 @@
-$color-dark: #1A1A1D;
-$color-light: #FFFFFF;
-$color-grey: #777777;
-$color-main-light: #C3073F;
-$color-main-dark: #6F2232;
-$color-main: #950740;
-$transition: 0.2s;
-$border-radius-small: 4px;
-$border-radius: 8px;
-
-$section-padding-x: 250px;
-$section-padding-y: 50px;
+@font-face {
+  font-family: 'Graphik';
+  src: url('../../public/fonts/Graphik-Regular-Web.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
