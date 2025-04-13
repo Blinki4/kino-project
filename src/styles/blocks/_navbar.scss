@@ -9,9 +9,32 @@
   color: var(--color-light);
   padding: 1rem;
 
+  @include desktop {
+    height: 100px;
+  }
+
+  @include mobile {
+    height: 80px;
+  }
+
   &__logo-wrapper {
     height: 4rem;
     width: 4rem;
+
+    @include desktop {
+      height: 3rem;
+      width: 3rem;
+    }
+
+    @include tablet {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    @include mobile {
+      height: 2rem;
+      width: 2rem;
+    }
   }
 
   &__logo {
@@ -40,6 +63,10 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    @include mobile {
+      width: 50%;
+    }
   }
 
   &__menu-item {
@@ -74,6 +101,11 @@
 
   &__menu-title {
     padding-right: 0.5rem;
+
+    @include tablet {
+      padding-right: 0.2rem;
+    }
+
   }
 
   &__profile-wrapper {
@@ -82,6 +114,16 @@
     align-items: center;
     height: 2rem;
     width: 2rem;
+
+    @include desktop {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    @include tablet {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
   }
 
   &__profile {
@@ -89,6 +131,7 @@
     height: 100%;
     color: var(--color-light);
     transition: var(--transition-duration);
+
 
     @include hover {
       color: var(--color-accent);
@@ -119,6 +162,10 @@
     border: var(--input-border);
     border-radius: var(--border-radius-small);
     transition: var(--transition-duration);
+
+    @include mobile {
+      height: 24px;
+    }
 
     &:focus {
       border: 2px solid var(--color-accent);

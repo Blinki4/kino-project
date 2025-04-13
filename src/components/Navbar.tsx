@@ -14,25 +14,25 @@ const Navbar: FC = () => {
                 <ul className={'navbar__menu-list'}>
                     <li className={'navbar__menu-item'}>
                         <Link to={'/'} className={'navbar__menu-link'}>
-                            <p className={'navbar__menu-title'}>Главная</p>
+                            <p className={'navbar__menu-title hidden-mobile'}>Главная</p>
                             <FontAwesomeIcon className={'navbar__menu-icon'} icon={["fas", 'home']}/>
                         </Link>
                     </li>
                     <li className={'navbar__menu-item'}>
                         <Link to={'/films'} className={'navbar__menu-link'}>
-                            <p className={'navbar__menu-title'}>Фильмы</p>
+                            <p className={'navbar__menu-title hidden-mobile'}>Фильмы</p>
                             <FontAwesomeIcon className={'navbar__menu-icon'} icon={["fas", 'film']}/>
                         </Link>
                     </li>
                     <li className={'navbar__menu-item'}>
                         <Link to={'/series'} className={'navbar__menu-link'}>
-                            <p className={'navbar__menu-title'}>Сериалы</p>
+                            <p className={'navbar__menu-title hidden-mobile'}>Сериалы</p>
                             <FontAwesomeIcon className={'navbar__menu-icon'} icon={["fas", 'laptop']}/>
                         </Link>
                     </li>
                     <li className={'navbar__menu-item'}>
                         <Link to={'/my'} className={'navbar__menu-link'}>
-                            <p className={'navbar__menu-title'}>Моё</p>
+                            <p className={'navbar__menu-title hidden-mobile'}>Моё</p>
                             <FontAwesomeIcon className={'navbar__menu-icon'} icon={["fas", 'bookmark']}/>
                         </Link>
                     </li>
