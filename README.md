@@ -6,7 +6,6 @@
 - Vite
 - Typescript
 - Zustand
-- Jest
 - Axios
 - React-router-dom
 - Scss
