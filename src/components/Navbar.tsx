@@ -38,7 +38,7 @@ const Navbar: FC = () => {
                     </li>
                 </ul>
                 <div className={'search'}>
-                    <input className={'search__input'} type="text"/>
+                    <input className={'search__input'} type="text" placeholder={'Фильмы, сериалы'}/>
                     <FontAwesomeIcon className={'search__icon'} icon={["fas", 'magnifying-glass']}/>
                 </div>
             </div>

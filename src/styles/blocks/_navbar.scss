@@ -171,6 +171,10 @@
     &:focus {
       border: 2px solid var(--color-accent);
     }
+
+    &::placeholder {
+      color: var(--color-gray);
+    }
   }
 
   &__icon {
