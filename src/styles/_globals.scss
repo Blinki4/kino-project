@@ -10,8 +10,8 @@
   width: 100%;
   max-width: var(--container-width);
   padding-inline: var(--container-padding-x);
-  margin-block: var(--container-margin-y);
-  border: 2px solid var(--color-accent); //TODO УБРАТЬ
-  border-radius: 8px; //TODO УБРАТЬ
+  margin-top: var(--container-margin-y);
+  background-color: var(--color-dark-alt);
+  border-radius: var(--border-radius-medium); //TODO УБРАТЬ
 }
 
