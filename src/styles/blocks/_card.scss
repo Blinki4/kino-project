@@ -1,0 +1,54 @@
+@import "../media";
+
+.card {
+  width: 165px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-duration);
+
+  &__poster {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: var(--border-radius-medium);
+    margin-bottom: 0.2rem;
+    transition: all ease var(--transition-duration);
+    cursor: pointer;
+
+    @include hover {
+      top: -6px;
+      transform: scale(1.1);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+
+    &-title {
+      width: 100%;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      transition: var(--transition-duration);
+
+      @include hover {
+        color: var(--color-accent);
+      }
+    }
+
+    &-year {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--color-gray);
+    }
+
+  }
+}

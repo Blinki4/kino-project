@@ -4,6 +4,8 @@
 @use 'fonts';
 @use 'utils';
 @use 'blocks/navbar';
+@use 'blocks/card';
+@use 'blocks/gallery';
 @import 'mixins';
 @import 'media';
 
@@ -19,4 +21,9 @@ body {
   font-weight: 400;
   background-color: var(--color-dark);
   color: var(--color-light);
+
+  &::selection {
+    color: var(--color-light);
+    background: var(--color-accent);
+  }
 }

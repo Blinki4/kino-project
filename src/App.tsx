@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar.tsx";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {
-    faBookmark,
+    faBookmark, faChevronLeft, faChevronRight,
     faClapperboard,
     faFilm,
     faHouse,
@@ -13,7 +13,7 @@ import {
 import {Route, Routes} from "react-router-dom";
 import MainPage from "./pages/MainPage.tsx";
 
-library.add(faS, faClapperboard, faFilm, faBookmark, faLaptop, faUser, faHouse, faMagnifyingGlass)
+library.add(faS, faClapperboard, faFilm, faBookmark, faLaptop, faUser, faHouse, faMagnifyingGlass, faChevronRight, faChevronLeft)
 
 function App() {
 

@@ -151,11 +151,6 @@
   padding-top: 1rem;
   width: 80%;
 
-  &::selection {
-    color: var(--color-light);
-    background: var(--color-accent);
-  }
-
   &__input {
     width: 100%;
     height: var(--input-height);

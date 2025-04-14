@@ -1,0 +1,47 @@
+@import '../media';
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  width: 100%;
+  //width: calc((165px * var(--total-cards-in-gallery)) + 1.5rem * 7); // 6 карточек и 7 отступов
+
+  &__header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    column-gap: 20px;
+
+    &-title {
+      font-size: 1.4rem;
+      margin-block: 16px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    column-gap: 24px;
+
+    &-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+      transition: var(--transition-duration);
+      cursor: pointer;
+
+      @include hover {
+        color: var(--color-accent);
+      }
+    }
+  }
+}
+
+
+//.gallery__list > .gallery__item {
+//  scroll-snap-align: center;
+//
+//}
