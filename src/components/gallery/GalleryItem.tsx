@@ -1,6 +1,7 @@
 import {Movie} from "../../types/Movie.ts";
 import {FC, useRef} from "react";
 import useHover from "../../hooks/useHover.ts";
+import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
 
 interface GalleryItemProps {
     movie: Movie
@@ -13,6 +14,7 @@ const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
     const posterRef = useRef<HTMLImageElement>(null);
     const isHover = useHover(posterRef);
 
+    const parsedLenght = getParsedMovieLength(movie.movieLength)
 
     return (
         <li className={'gallery__item'}>
@@ -24,7 +26,7 @@ const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
                         &&
                         <div className={'hover'}>
                             <div className={'hover__rating'}>{movie.rating}</div>
-                            <div className={'hover__duration'}>{movie.movieLength}</div>
+                            <div className={'hover__duration'}>{parsedLenght}</div>
                         </div>
                     }
                 </div>
