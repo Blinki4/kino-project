@@ -1,8 +1,14 @@
-import {FC} from "react";
+import {FC, useRef} from "react";
 import batmanPoster from '../assets/batman-poster.png'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const MainPage: FC = () => {
+    const ref = useRef<HTMLUListElement>(null);
+
+    const scroll = (scrollOffset: number) => {
+        ref!.current!.scrollLeft += scrollOffset;
+    };
+
     return (
         <div className={'page'}>
             <div className={'container'}>
@@ -11,8 +17,9 @@ const MainPage: FC = () => {
                     <FontAwesomeIcon className={'gallery__header-icon'} icon={["fas", 'chevron-right']}/>
                 </div>
                 <div className={'gallery'}>
-                    <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-left']}/>
-                    <ul className={'gallery__list'}>
+                    <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-left']}
+                                     onClick={() => scroll(-1000)}/>
+                    <ul ref={ref} className={'gallery__list'}>
                         <li className={'gallery__item'}>
                             <div className={'card'}>
                                 <img src={batmanPoster} alt="" className={'card__poster'}/>
@@ -44,7 +51,7 @@ const MainPage: FC = () => {
                                 <img src={batmanPoster} alt="" className={'card__poster'}/>
                                 <div className={'card__info'}>
                                     <div className={'card__info-title'}>
-                                        Бэтмен
+                                        Бэтмен 3
                                     </div>
                                     <div className={'card__info-year'}>
                                         2018
@@ -57,7 +64,7 @@ const MainPage: FC = () => {
                                 <img src={batmanPoster} alt="" className={'card__poster'}/>
                                 <div className={'card__info'}>
                                     <div className={'card__info-title'}>
-                                        Бэтмен
+                                        Бэтмен 4
                                     </div>
                                     <div className={'card__info-year'}>
                                         2018
@@ -70,7 +77,7 @@ const MainPage: FC = () => {
                                 <img src={batmanPoster} alt="" className={'card__poster'}/>
                                 <div className={'card__info'}>
                                     <div className={'card__info-title'}>
-                                        Бэтмен
+                                        Бэтмен 5
                                     </div>
                                     <div className={'card__info-year'}>
                                         2018
@@ -83,7 +90,7 @@ const MainPage: FC = () => {
                                 <img src={batmanPoster} alt="" className={'card__poster'}/>
                                 <div className={'card__info'}>
                                     <div className={'card__info-title'}>
-                                        Бэтмен
+                                        Бэтмен 6
                                     </div>
                                     <div className={'card__info-year'}>
                                         2018
@@ -96,7 +103,7 @@ const MainPage: FC = () => {
                                 <img src={batmanPoster} alt="" className={'card__poster'}/>
                                 <div className={'card__info'}>
                                     <div className={'card__info-title'}>
-                                        Бэтмен
+                                        Бэтмен 7
                                     </div>
                                     <div className={'card__info-year'}>
                                         2018
@@ -109,7 +116,111 @@ const MainPage: FC = () => {
                                 <img src={batmanPoster} alt="" className={'card__poster'}/>
                                 <div className={'card__info'}>
                                     <div className={'card__info-title'}>
-                                        Бэтмен
+                                        Бэтмен 8
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 9
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 10
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 11
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 12
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 13
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 14
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 15
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 16
                                     </div>
                                     <div className={'card__info-year'}>
                                         2018
@@ -118,7 +229,8 @@ const MainPage: FC = () => {
                             </div>
                         </li>
                     </ul>
-                    <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-right']}/>
+                    <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-right']}
+                                     onClick={() => scroll(1000)}/>
                 </div>
             </div>
             <div className={'container'}>
