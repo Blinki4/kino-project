@@ -1,13 +1,132 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import batmanPoster from "../../assets/batman-poster.png";
 import {useRef} from "react";
+import GalleryItem from "./GalleryItem.tsx";
+import {Movie} from "../../types/Movie.ts";
+
 
 const GalleryList = () => {
     const galleryListRef = useRef<HTMLUListElement>(null);
+    const movies: Movie[] = [
+        {
+            id: 0,
+            title: 'Batman',
+            year: 2018,
+            poster: batmanPoster,
+        },
+        {
+            id: 1,
+            title: 'Spider-man',
+            year: 2011,
+            poster: batmanPoster,
+        },
+        {
+            id: 2,
+            title: 'Shining',
+            year: 1998,
+            poster: batmanPoster,
+        },
+        {
+            id: 3,
+            title: 'Silicon Valley',
+            year: 2018,
+            poster: batmanPoster,
+        },
+        {
+            id: 4,
+            title: 'MacBook',
+            year: 2011,
+            poster: batmanPoster,
+        },
+        {
+            id: 5,
+            title: 'Mortal Combat',
+            year: 1998,
+            poster: batmanPoster,
+        },
+        {
+            id: 6,
+            title: 'Minecraft',
+            year: 2018,
+            poster: batmanPoster,
+        },
+        {
+            id: 7,
+            title: 'Five Nights at Freddy`s',
+            year: 2011,
+            poster: batmanPoster,
+        },
+        {
+            id: 8,
+            title: 'Borderlands',
+            year: 1998,
+            poster: batmanPoster,
+        },
+        {
+            id: 9,
+            title: 'Venom',
+            year: 2018,
+            poster: batmanPoster,
+        },
+        {
+            id: 10,
+            title: 'Spider-man: Across The Spiderverse',
+            year: 2011,
+            poster: batmanPoster,
+        },
+        {
+            id: 11,
+            title: 'Mask',
+            year: 1998,
+            poster: batmanPoster,
+        },
+        {
+            id: 12,
+            title: 'Adrenaline Rush',
+            year: 2018,
+            poster: batmanPoster,
+        },
+        {
+            id: 13,
+            title: 'Devtools',
+            year: 2011,
+            poster: batmanPoster,
+        },
+        {
+            id: 14,
+            title: 'Azazin',
+            year: 1998,
+            poster: batmanPoster,
+        },
+        {
+            id: 15,
+            title: 'Agent 007',
+            year: 2011,
+            poster: batmanPoster,
+        },
+        {
+            id: 16,
+            title: 'Ghost of Thushima',
+            year: 1998,
+            poster: batmanPoster,
+        },
+        {
+            id: 17,
+            title: 'Hooli',
+            year: 2011,
+            poster: batmanPoster,
+        },
+        {
+            id: 18,
+            title: 'Farcry',
+            year: 1998,
+            poster: batmanPoster,
+        },
+    ];
 
     const galleryScroll = (direction: string) => {
-        let width = window.innerWidth
-        let scrollOffset = 1135
+        let width: number = window.innerWidth
+        let scrollOffset: number = 1135
         if (width <= 1080) {
             scrollOffset = 935
         }
@@ -24,241 +143,9 @@ const GalleryList = () => {
             <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-left']}
                              onClick={() => galleryScroll('left')}/>
             <ul ref={galleryListRef} className={'gallery__list'}>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен длинное название
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 3
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 4
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 5
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 6
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 7
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 8
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 9
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 10
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 11
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 12
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 7
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 8
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 9
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 10
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 11
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className={'gallery__item'}>
-                    <div className={'card'}>
-                        <img src={batmanPoster} alt="" className={'card__poster'}/>
-                        <div className={'card__info'}>
-                            <div className={'card__info-title'}>
-                                Бэтмен 12
-                            </div>
-                            <div className={'card__info-year'}>
-                                2018
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
+                {movies.map(movie =>
+                    <GalleryItem key={movie.id} movie={movie}/>
+                )}
             </ul>
             <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-right']}
                              onClick={() => galleryScroll('right')}/>
