@@ -1,10 +1,10 @@
 @import "../media";
 
 .card {
-  width: 165px;
-  height: 300px;
   display: flex;
   flex-direction: column;
+  width: 165px;
+  height: 300px;
   transition: var(--transition-duration);
 
   &__poster {

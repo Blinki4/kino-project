@@ -18,7 +18,7 @@ const MainPage: FC = () => {
                 </div>
                 <div className={'gallery'}>
                     <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-left']}
-                                     onClick={() => scroll(-1000)}/>
+                                     onClick={() => scroll(-1130)}/>
                     <ul ref={ref} className={'gallery__list'}>
                         <li className={'gallery__item'}>
                             <div className={'card'}>
@@ -176,9 +176,88 @@ const MainPage: FC = () => {
                                 </div>
                             </div>
                         </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 7
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 8
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 9
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 10
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 11
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className={'gallery__item'}>
+                            <div className={'card'}>
+                                <img src={batmanPoster} alt="" className={'card__poster'}/>
+                                <div className={'card__info'}>
+                                    <div className={'card__info-title'}>
+                                        Бэтмен 12
+                                    </div>
+                                    <div className={'card__info-year'}>
+                                        2018
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
                     </ul>
                     <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-right']}
-                                     onClick={() => scroll(1000)}/>
+                                     onClick={() => scroll(1130)}/>
                 </div>
             </div>
             <div className={'container'}>
