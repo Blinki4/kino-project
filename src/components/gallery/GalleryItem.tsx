@@ -14,19 +14,21 @@ const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
     const posterRef = useRef<HTMLImageElement>(null);
     const isHover = useHover(posterRef);
 
-    const parsedLenght = getParsedMovieLength(movie.movieLength)
+    const parsedLength = getParsedMovieLength(movie.movieLength)
 
     return (
         <li className={'gallery__item'}>
             <div className={'card'}>
                 <div ref={posterRef} className={'hover-wrapper'}>
                     <img src={movie.poster} alt={movie.poster} className={'card__poster'}/>
-                    {
-                        isHover
+                    {isHover
                         &&
                         <div className={'hover'}>
-                            <div className={'hover__rating'}>{movie.rating}</div>
-                            <div className={'hover__duration'}>{parsedLenght}</div>
+                            <p className={'hover__rating'}>{movie.rating}</p>
+                            <div className={'hover__info'}>
+                                <p className={'hover__info-duration'}>{parsedLength}</p>
+                                <p className={'hover__info-country'}>{movie.country}</p>
+                            </div>
                         </div>
                     }
                 </div>
