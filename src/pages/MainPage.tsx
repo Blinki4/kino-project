@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const MainPage: FC = () => {
     const ref = useRef<HTMLUListElement>(null);
+    const desktopScrollOffset: number = 1130;
 
     const scroll = (scrollOffset: number) => {
         ref!.current!.scrollLeft += scrollOffset;
@@ -18,7 +19,7 @@ const MainPage: FC = () => {
                 </div>
                 <div className={'gallery'}>
                     <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-left']}
-                                     onClick={() => scroll(-1130)}/>
+                                     onClick={() => scroll(-desktopScrollOffset)}/>
                     <ul ref={ref} className={'gallery__list'}>
                         <li className={'gallery__item'}>
                             <div className={'card'}>
@@ -257,7 +258,7 @@ const MainPage: FC = () => {
 
                     </ul>
                     <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-right']}
-                                     onClick={() => scroll(1130)}/>
+                                     onClick={() => scroll(desktopScrollOffset)}/>
                 </div>
             </div>
             <div className={'container'}>

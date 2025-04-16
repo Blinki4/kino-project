@@ -24,7 +24,7 @@
   &__list {
     display: flex;
     align-items: center;
-    overflow-x: scroll;
+    overflow-x: hidden;
     padding-block: 20px;
     scroll-behavior: smooth;
     column-gap: 24px;
