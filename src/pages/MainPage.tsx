@@ -4,10 +4,22 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const MainPage: FC = () => {
     const ref = useRef<HTMLUListElement>(null);
-    const desktopScrollOffset: number = 1135;
 
-    const scroll = (scrollOffset: number) => {
-        ref!.current!.scrollLeft += scrollOffset;
+    const galleryScroll = (direction: string) => {
+        let width = window.innerWidth
+        console.log(width)
+        let scrollOffset = 1135
+        if (width <= 1080) {
+            scrollOffset = 935
+        }
+
+        if (direction === 'left') {
+            ref!.current!.scrollLeft -= scrollOffset;
+        }
+
+        if (direction === 'right') {
+            ref!.current!.scrollLeft += scrollOffset;
+        }
     };
 
     return (
@@ -19,7 +31,7 @@ const MainPage: FC = () => {
                 </div>
                 <div className={'gallery'}>
                     <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-left']}
-                                     onClick={() => scroll(-desktopScrollOffset)}/>
+                                     onClick={() => galleryScroll('left')}/>
                     <ul ref={ref} className={'gallery__list'}>
                         <li className={'gallery__item'}>
                             <div className={'card'}>
@@ -258,7 +270,7 @@ const MainPage: FC = () => {
 
                     </ul>
                     <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-right']}
-                                     onClick={() => scroll(desktopScrollOffset)}/>
+                                     onClick={() => galleryScroll('right')}/>
                 </div>
             </div>
             <div className={'container'}>
