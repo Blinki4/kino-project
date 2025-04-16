@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   column-gap: 20px;
-
   width: 100%;
   //width: calc((165px * var(--total-cards-in-gallery)) + 1.5rem * 7); // 6 карточек и 7 отступов
 
@@ -28,11 +27,14 @@
     padding-block: 20px;
     scroll-behavior: smooth;
     column-gap: 24px;
-    //scroll-snap-type: x mandatory;
 
-    //& > .gallery__item {
-    //  scroll-snap-align: center;
-    //}
+    @include desktop {
+      column-gap: 70px;
+    }
+
+    @include tablet {
+      column-gap: 60px;
+    }
 
     &-icon {
       width: 1.2rem;

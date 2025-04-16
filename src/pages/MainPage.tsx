@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const MainPage: FC = () => {
     const ref = useRef<HTMLUListElement>(null);
-    const desktopScrollOffset: number = 1130;
+    const desktopScrollOffset: number = 1135;
 
     const scroll = (scrollOffset: number) => {
         ref!.current!.scrollLeft += scrollOffset;
@@ -270,6 +270,5 @@ const MainPage: FC = () => {
 
 export default MainPage;
 
-
-//TODO При наведении на постер затемнять его и сверху отображать оценку, длительность и страну (Use hover)
 //TODO Вынести галерею в компонент
+//TODO При наведении на постер затемнять его и сверху отображать оценку, длительность и страну (Use hover)
