@@ -15,4 +15,3 @@ const MainPage: FC = () => {
 
 export default MainPage;
 
-//TODO При наведении на постер затемнять его и сверху отображать оценку, длительность и страну (Use hover)

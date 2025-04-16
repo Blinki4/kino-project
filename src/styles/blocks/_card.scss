@@ -16,10 +16,10 @@
     transition: all ease var(--transition-duration);
     cursor: pointer;
 
-    @include hover {
-      top: -6px;
-      transform: scale(1.1);
-    }
+    //@include hover {
+    //  top: -6px;
+    //  transform: scale(1.1);
+    //}
   }
 
   &__info {
@@ -51,4 +51,32 @@
     }
 
   }
+}
+
+.hover-wrapper {
+  position: relative;
+  transition: var(--transition-duration);
+
+  @include hover {
+
+    .card__poster {
+      top: -6px;
+      transform: scale(1.1);
+      opacity: 0.4;
+    }
+
+    .hover {
+      top: -6px;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.hover {
+  top: -6px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: var(--border-radius-medium);
+  cursor: pointer;
 }
