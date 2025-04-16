@@ -176,58 +176,6 @@ const MainPage: FC = () => {
                                 </div>
                             </div>
                         </li>
-                        <li className={'gallery__item'}>
-                            <div className={'card'}>
-                                <img src={batmanPoster} alt="" className={'card__poster'}/>
-                                <div className={'card__info'}>
-                                    <div className={'card__info-title'}>
-                                        Бэтмен 13
-                                    </div>
-                                    <div className={'card__info-year'}>
-                                        2018
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li className={'gallery__item'}>
-                            <div className={'card'}>
-                                <img src={batmanPoster} alt="" className={'card__poster'}/>
-                                <div className={'card__info'}>
-                                    <div className={'card__info-title'}>
-                                        Бэтмен 14
-                                    </div>
-                                    <div className={'card__info-year'}>
-                                        2018
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li className={'gallery__item'}>
-                            <div className={'card'}>
-                                <img src={batmanPoster} alt="" className={'card__poster'}/>
-                                <div className={'card__info'}>
-                                    <div className={'card__info-title'}>
-                                        Бэтмен 15
-                                    </div>
-                                    <div className={'card__info-year'}>
-                                        2018
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li className={'gallery__item'}>
-                            <div className={'card'}>
-                                <img src={batmanPoster} alt="" className={'card__poster'}/>
-                                <div className={'card__info'}>
-                                    <div className={'card__info-title'}>
-                                        Бэтмен 16
-                                    </div>
-                                    <div className={'card__info-year'}>
-                                        2018
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
                     </ul>
                     <FontAwesomeIcon className={'gallery__list-icon'} icon={["fas", 'chevron-right']}
                                      onClick={() => scroll(1000)}/>

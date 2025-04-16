@@ -23,12 +23,16 @@
 
   &__list {
     display: flex;
-    justify-content: center;
     align-items: center;
     overflow-x: scroll;
     column-gap: 24px;
     padding-block: 20px;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    & > .gallery__item {
+      scroll-snap-align: center;
+    }
 
     &-icon {
       width: 1.2rem;
@@ -42,7 +46,6 @@
     }
   }
 }
-
 
 //.gallery__list > .gallery__item {
 //  scroll-snap-align: center;
