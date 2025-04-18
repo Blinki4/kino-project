@@ -29,10 +29,6 @@
     column-gap: 24px;
 
     @include desktop {
-     
-    }
-
-    @include tablet {
       column-gap: 60px;
     }
 

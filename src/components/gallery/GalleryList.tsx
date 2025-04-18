@@ -193,8 +193,8 @@ const GalleryList = () => {
     const galleryScroll = (direction: string) => {
         let width: number = window.innerWidth
         let scrollOffset: number = 1135
-        if (width <= 1080) {
-            scrollOffset = 935
+        if (width <= 1280) {
+            scrollOffset = 220
         }
         if (direction === 'left') {
             galleryListRef!.current!.scrollLeft -= scrollOffset;
