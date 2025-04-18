@@ -2,12 +2,12 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import batmanPoster from "../../assets/batman-poster.png";
 import {useRef} from "react";
 import GalleryItem from "./GalleryItem.tsx";
-import {Movie} from "../../types/Movie.ts";
+import {IMovie} from "../../types/IMovie.ts";
 
 
 const GalleryList = () => {
     const galleryListRef = useRef<HTMLUListElement>(null);
-    const movies: Movie[] = [
+    const movies: IMovie[] = [
         {
             id: 0,
             title: 'Batman',

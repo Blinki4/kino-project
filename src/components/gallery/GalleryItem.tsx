@@ -1,10 +1,10 @@
-import {Movie} from "../../types/Movie.ts";
+import {IMovie} from "../../types/IMovie.ts";
 import {FC, useRef} from "react";
 import useHover from "../../hooks/useHover.ts";
 import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
 
 interface GalleryItemProps {
-    movie: Movie
+    movie: IMovie
 }
 
 //TODO При наведении на постер затемнять его и сверху отображать оценку, длительность и страну (Use hover)
