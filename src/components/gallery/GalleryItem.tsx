@@ -7,9 +7,6 @@ interface GalleryItemProps {
     movie: IMovie
 }
 
-//TODO При наведении на постер затемнять его и сверху отображать оценку, длительность и страну (Use hover)
-//TODO функция для длительности фильмов
-
 const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
     const posterRef = useRef<HTMLImageElement>(null);
     const isHover = useHover(posterRef);
