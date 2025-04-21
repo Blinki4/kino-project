@@ -3,9 +3,10 @@ import Gallery from "../components/gallery/Gallery.tsx";
 import {IMovie} from "../types/IMovie.ts";
 import batmanPoster from "../assets/batman-poster.png";
 import Carousel from "../components/carousel/Carousel.tsx";
+import spiderPoster from "../assets/spider-man-bg.webp";
 
 const MainPage: FC = () => {
-    const movies: IMovie[] = [
+    const galleryMovies: IMovie[] = [
         {
             id: 0,
             title: 'Batman',
@@ -187,13 +188,65 @@ const MainPage: FC = () => {
             movieLength: 173,
         },
     ];
+    const carouselMovies: IMovie[] = [
+        {
+            id: 0,
+            title: 'Batman',
+            year: 2018,
+            poster: spiderPoster,
+            rating: 8.2,
+            ageRating: 18,
+            country: 'USA',
+            movieLength: 183,
+        },
+        {
+            id: 1,
+            title: 'Spider-man',
+            year: 2011,
+            poster: spiderPoster,
+            rating: 7.1,
+            ageRating: 18,
+            country: 'USA',
+            movieLength: 13,
+        },
+        {
+            id: 2,
+            title: 'Shining',
+            year: 1998,
+            poster: spiderPoster,
+            rating: 4.4,
+            ageRating: 18,
+            country: 'Россия',
+            movieLength: 173,
+        },
+        {
+            id: 3,
+            title: 'Shining',
+            year: 1998,
+            poster: spiderPoster,
+            rating: 4.4,
+            ageRating: 18,
+            country: 'Россия',
+            movieLength: 173,
+        },
+        {
+            id: 4,
+            title: 'Shining',
+            year: 1998,
+            poster: spiderPoster,
+            rating: 4.4,
+            ageRating: 18,
+            country: 'Россия',
+            movieLength: 173,
+        },
+    ]
 
     return (
         <div className={'page'}>
-            <Carousel/>
-            <Gallery movies={movies} title={'Фильмы-новинки'}/>
-            <Gallery movies={movies} title={'Сериалы'}/>
-            <Gallery movies={movies} title={'Мультфильмы'}/>
+            <Carousel movies={carouselMovies}/>
+            <Gallery movies={galleryMovies} title={'Фильмы-новинки'}/>
+            <Gallery movies={galleryMovies} title={'Сериалы'}/>
+            <Gallery movies={galleryMovies} title={'Мультфильмы'}/>
         </div>
     );
 };

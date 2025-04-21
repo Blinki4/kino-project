@@ -1,26 +1,19 @@
 import {FC} from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import spiderPoster from "../../assets/spider-man-bg.webp";
+import CarouselDots from "./CarouselDots.tsx";
+import {IMovie} from "../../types/IMovie.ts";
+import CarouselList from "./CarouselList.tsx";
 
-const Carousel: FC = () => {
+interface CarouselProps {
+    movies: IMovie[],
+}
+
+const Carousel: FC<CarouselProps> = ({movies}) => {
+
     return (
         <div className={'container'}>
             <h2 className={'carousel__header'}>Новинки</h2>
-            <div className="carousel">
-                <FontAwesomeIcon className={'carousel__icon'} icon={["fas", 'chevron-left']}/>
-                <ul className={'carousel__list'}>
-                    <li className={'carousel__item'}>
-                        <img className={'carousel__poster'} src={spiderPoster} alt={''}/>
-                    </li>
-                    <li className={'carousel__item'}>
-                        <img className={'carousel__poster'} src={spiderPoster} alt={''}/>
-                    </li>
-                    <li className={'carousel__item'}>
-                        <img className={'carousel__poster'} src={spiderPoster} alt={''}/>
-                    </li>
-                </ul>
-                <FontAwesomeIcon className={'carousel__icon'} icon={["fas", 'chevron-right']}/>
-            </div>
+            <CarouselList movies={movies}/>
+            <CarouselDots/>
         </div>
     );
 };

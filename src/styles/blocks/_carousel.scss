@@ -1,14 +1,22 @@
+@import '../media';
+
 .carousel {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   column-gap: 20px;
-  padding-block: 20px;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+  }
 
   &__list {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     padding: 10px;
     column-gap: 20px;
@@ -22,5 +30,35 @@
     min-width: 1090px;
     height: 525px;
     border-radius: var(--border-radius-medium);
+  }
+
+  &__icon {
+    cursor: pointer;
+    transition: var(--transition-duration);
+
+    @include hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 20px;
+    transition: var(--transition-duration);
+  }
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: var(--color-light);
+  border-radius: 999px;
+  transition: var(--transition-duration);
+  cursor: pointer;
+
+  @include hover {
+    background-color: var(--color-accent);
   }
 }
