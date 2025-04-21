@@ -1,0 +1,26 @@
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  column-gap: 20px;
+  padding-block: 20px;
+
+  &__list {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 10px;
+    column-gap: 20px;
+  }
+
+  &__item {
+    width: 100%;
+  }
+
+  &__poster {
+    min-width: 1090px;
+    height: 525px;
+    border-radius: var(--border-radius-medium);
+  }
+}

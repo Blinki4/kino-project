@@ -2,6 +2,7 @@ import {FC} from "react";
 import Gallery from "../components/gallery/Gallery.tsx";
 import {IMovie} from "../types/IMovie.ts";
 import batmanPoster from "../assets/batman-poster.png";
+import Carousel from "../components/carousel/Carousel.tsx";
 
 const MainPage: FC = () => {
     const movies: IMovie[] = [
@@ -189,9 +190,7 @@ const MainPage: FC = () => {
 
     return (
         <div className={'page'}>
-            <div className={'container'}>
-                <h2>Карусель</h2>
-            </div>
+            <Carousel/>
             <Gallery movies={movies} title={'Фильмы-новинки'}/>
             <Gallery movies={movies} title={'Сериалы'}/>
             <Gallery movies={movies} title={'Мультфильмы'}/>
