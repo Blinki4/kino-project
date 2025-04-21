@@ -18,6 +18,15 @@
       font-size: 1.4rem;
       margin-block: 16px;
     }
+
+    &-icon {
+      transition: var(--transition-duration);
+      cursor: pointer;
+
+      @include hover {
+        color: var(--color-accent);
+      }
+    }
   }
 
   &__list {
