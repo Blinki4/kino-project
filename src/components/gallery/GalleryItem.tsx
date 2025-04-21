@@ -5,7 +5,7 @@ import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface GalleryItemProps {
-    movie: IMovie
+    movie: IMovie,
 }
 
 const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
