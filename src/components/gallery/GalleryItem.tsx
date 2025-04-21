@@ -2,6 +2,7 @@ import {IMovie} from "../../types/IMovie.ts";
 import {FC, useRef} from "react";
 import useHover from "../../hooks/useHover.ts";
 import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface GalleryItemProps {
     movie: IMovie
@@ -21,10 +22,13 @@ const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
                     {isHover
                         &&
                         <div className={'hover'}>
-                            <p className={'hover__rating'}>{movie.rating}</p>
-                            <div className={'hover__info'}>
-                                <p className={'hover__info-duration'}>{parsedLength}</p>
-                                <p className={'hover__info-country'}>{movie.country}</p>
+                            <FontAwesomeIcon className={'hover__icon'} icon={["fas", 'bookmark']}/>
+                            <div className={'hover__info-wrapper'}>
+                                <p className={'hover__rating'}>{movie.rating}</p>
+                                <div className={'hover__info'}>
+                                    <p className={'hover__info-duration'}>{parsedLength}</p>
+                                    <p className={'hover__info-country'}>{movie.country}</p>
+                                </div>
                             </div>
                         </div>
                     }

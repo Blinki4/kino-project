@@ -75,6 +75,7 @@
 .hover {
   top: -6px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
   padding-block: 20px;
@@ -84,6 +85,13 @@
   position: absolute;
   border-radius: var(--border-radius-medium);
   cursor: pointer;
+
+  &__info-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+  }
 
   &__info {
     display: flex;
@@ -95,6 +103,16 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    top: -10px;
+    transition: var(--transition-duration);
+
+    @include hover {
+      color: var(--color-accent);
     }
   }
 }
