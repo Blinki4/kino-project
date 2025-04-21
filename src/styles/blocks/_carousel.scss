@@ -27,6 +27,7 @@
   }
 
   &__poster {
+    position: relative;
     min-width: 1090px;
     height: 525px;
     border-radius: var(--border-radius-medium);
