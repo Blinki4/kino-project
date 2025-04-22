@@ -1,11 +1,13 @@
 :root {
-  --color-dark: #121212;
+  --color-dark: #0e0e0e;
+  --color-dark-alt: #121212;
   --color-light: #ffffff;
   --color-gray: #383838;
   --color-accent: #f43f40;
   //--color-accent: #f05133;
 
   --border-radius-small: 8px;
+  --border-radius-medium: 16px;
 
   --input-height: 32px;
   --input-border: 2px solid var(--color-light);
@@ -13,6 +15,8 @@
   --transition-duration: 0.2s;
 
   --container-width: 1240px;
-  --container-padding-x: 20px;
+  --container-padding-x: 30px;
+  --container-margin-y: 20px;
 
+  --button-height: 40px;
 }

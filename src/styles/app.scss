@@ -4,14 +4,27 @@
 @use 'fonts';
 @use 'utils';
 @use 'blocks/navbar';
+@use 'blocks/card';
+@use 'blocks/gallery';
+@use 'blocks/carousel';
 @import 'mixins';
 @import 'media';
 
 body {
   @include fluid-text(18, 16);
 
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 1rem;
   font-family: 'Graphik', sans-serif;
   font-weight: 400;
   background-color: var(--color-dark);
   color: var(--color-light);
+
+  &::selection {
+    color: var(--color-light);
+    background: var(--color-accent);
+  }
 }

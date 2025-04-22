@@ -3,11 +3,15 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
   height: 120px;
+  width: 100%;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  border-radius: var(--border-radius-medium);
   background-color: var(--color-dark-alt);
   color: var(--color-light);
-  padding: 1rem;
+
 
   @include desktop {
     height: 100px;
@@ -147,11 +151,6 @@
   padding-top: 1rem;
   width: 80%;
 
-  &::selection {
-    color: var(--color-light);
-    background: var(--color-accent);
-  }
-
   &__input {
     width: 100%;
     height: var(--input-height);
@@ -169,6 +168,10 @@
 
     &:focus {
       border: 2px solid var(--color-accent);
+    }
+
+    &::placeholder {
+      color: var(--color-gray);
     }
   }
 
