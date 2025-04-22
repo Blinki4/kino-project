@@ -1,6 +1,7 @@
 class CarouselService {
-    carouselScroll(direction: string, ref: { current: any }) {
-        const scrollOffset: number = 1095
+    carouselScroll(direction: string, ref: { current: any }, offset: number) {
+        //1095
+        const scrollOffset: number = offset
         if (direction === 'left') {
             ref.current!.scrollLeft -= scrollOffset;
         }

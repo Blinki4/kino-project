@@ -211,7 +211,7 @@ const MainPage: FC = () => {
         },
         {
             id: 2,
-            title: 'Shining',
+            title: 'Третий',
             year: 1998,
             poster: spiderPoster,
             rating: 4.4,
@@ -221,7 +221,7 @@ const MainPage: FC = () => {
         },
         {
             id: 3,
-            title: 'Shining',
+            title: 'Четвертый',
             year: 1998,
             poster: spiderPoster,
             rating: 4.4,
@@ -231,7 +231,7 @@ const MainPage: FC = () => {
         },
         {
             id: 4,
-            title: 'Shining',
+            title: 'Пятый элемент',
             year: 1998,
             poster: spiderPoster,
             rating: 4.4,
