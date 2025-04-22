@@ -2,6 +2,7 @@ import {FC, RefObject} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {IMovie} from "../../types/IMovie.ts";
 import CarouselItem from "./CarouselItem.tsx";
+import {DESKTOP_SCROLL_CAROUSEL_OFFSET} from "../../constants/constants.ts";
 
 interface CarouselListProps {
     movies: IMovie[],
@@ -22,7 +23,7 @@ const CarouselList: FC<CarouselListProps> = ({movies, scroll, ref}) => {
                 )}
             </ul>
             <FontAwesomeIcon className={'carousel__icon'} icon={["fas", 'chevron-right']}
-                             onClick={() => scroll('right', ref, 1095)}/>
+                             onClick={() => scroll('right', ref, DESKTOP_SCROLL_CAROUSEL_OFFSET)}/>
         </div>
     );
 };

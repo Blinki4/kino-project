@@ -89,11 +89,6 @@
   background-color: var(--color-light);
   border-radius: 999px;
   transition: var(--transition-duration);
-  cursor: pointer;
-
-  @include hover {
-    background-color: var(--color-accent);
-  }
 }
 
 .dot-active {

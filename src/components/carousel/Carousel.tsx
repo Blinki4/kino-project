@@ -3,6 +3,7 @@ import CarouselDots from "./CarouselDots.tsx";
 import {IMovie} from "../../types/IMovie.ts";
 import CarouselList from "./CarouselList.tsx";
 import {carouselService} from "./carouselService.ts";
+import {DESKTOP_SCROLL_CAROUSEL_OFFSET} from "../../constants/constants.ts";
 
 interface CarouselProps {
     movies: IMovie[],
@@ -46,7 +47,7 @@ const Carousel: FC<CarouselProps> = ({movies}) => {
                 return
             }
             setPage(prevState => prevState === dotsQuantity - 1 ? prevState = 0 : prevState + 1)
-            carouselService.carouselScroll('right', carouselListRef, 1095)
+            carouselService.carouselScroll('right', carouselListRef, DESKTOP_SCROLL_CAROUSEL_OFFSET)
         }, 3000);
         return () => clearInterval(timer)
     })
