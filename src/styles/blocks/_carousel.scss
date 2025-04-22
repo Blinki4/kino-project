@@ -28,7 +28,7 @@
   }
 
   &__poster {
-    min-width: 1090px;
+    min-width: 1075px;
     height: 525px;
     border-radius: var(--border-radius-medium);
   }
@@ -48,7 +48,7 @@
     left: 20px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 95%;
 
     &-title {
       font-size: 3rem;
@@ -57,15 +57,15 @@
   }
 
   &__buttons {
-    width: 100%;
+    width: 95%;
     display: flex;
     align-items: center;
-    column-gap: 50px;
+    column-gap: 20px;
   }
 
   &__icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 36px;
+    height: 36px;
     transition: var(--transition-duration);
 
     @include hover {
