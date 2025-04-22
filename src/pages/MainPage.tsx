@@ -1,12 +1,12 @@
 import {FC} from "react";
 import Gallery from "../components/gallery/Gallery.tsx";
-import {IMovie} from "../types/IMovie.ts";
+import {IMovieLess} from "../types/IMovieLess.ts";
 import batmanPoster from "../assets/batman-poster.png";
 import Carousel from "../components/carousel/Carousel.tsx";
 import spiderPoster from "../assets/spider-man-bg.jpg";
 
 const MainPage: FC = () => {
-    const galleryMovies: IMovie[] = [
+    const galleryMovies: IMovieLess[] = [
         {
             id: 0,
             title: 'Batman',
@@ -188,7 +188,7 @@ const MainPage: FC = () => {
             movieLength: 173,
         },
     ];
-    const carouselMovies: IMovie[] = [
+    const carouselMovies: IMovieLess[] = [
         {
             id: 0,
             title: 'Человек-паук: Через вселенные',

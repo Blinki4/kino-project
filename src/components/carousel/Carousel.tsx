@@ -1,12 +1,12 @@
 import {FC, useEffect, useRef, useState} from "react";
 import CarouselDots from "./CarouselDots.tsx";
-import {IMovie} from "../../types/IMovie.ts";
+import {IMovieLess} from "../../types/IMovieLess.ts";
 import CarouselList from "./CarouselList.tsx";
 import {carouselService} from "./carouselService.ts";
 import {DESKTOP_SCROLL_CAROUSEL_OFFSET} from "../../constants/constants.ts";
 
 interface CarouselProps {
-    movies: IMovie[],
+    movies: IMovieLess[],
 }
 
 const Carousel: FC<CarouselProps> = ({movies}) => {

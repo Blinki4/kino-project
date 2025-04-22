@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {IMovie} from "../../types/IMovie.ts";
+import {IMovieLess} from "../../types/IMovieLess.ts";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Button from "../ui/Button.tsx";
 
@@ -7,7 +7,7 @@ import {carouselService} from "./carouselService.ts";
 import {useNavigate} from "react-router-dom";
 
 interface CarouselItemProps {
-    movie: IMovie,
+    movie: IMovieLess,
 }
 
 const CarouselItem: FC<CarouselItemProps> = ({movie}) => {

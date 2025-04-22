@@ -1,4 +1,4 @@
-import {IMovie} from "../../types/IMovie.ts";
+import {IMovieLess} from "../../types/IMovieLess.ts";
 import {FC, useRef} from "react";
 import useHover from "../../hooks/useHover.ts";
 import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
@@ -8,7 +8,7 @@ import {galleryService} from "./galleryService.ts";
 import {useNavigate} from "react-router-dom";
 
 interface GalleryItemProps {
-    movie: IMovie,
+    movie: IMovieLess,
 }
 
 const GalleryItem: FC<GalleryItemProps> = ({movie}) => {

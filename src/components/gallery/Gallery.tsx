@@ -1,10 +1,10 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import GalleryList from "./GalleryList.tsx";
-import {IMovie} from "../../types/IMovie.ts";
+import {IMovieLess} from "../../types/IMovieLess.ts";
 import {FC} from "react";
 
 interface GalleryProps {
-    movies: IMovie[],
+    movies: IMovieLess[],
     title: string,
 }
 
