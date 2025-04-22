@@ -8,6 +8,14 @@ class CarouselService {
             ref.current!.scrollLeft += scrollOffset;
         }
     };
+
+    getCarouselDotsArray(count: number): Array<number> {
+        const dots: Array<number> = [];
+        for (let i = 0; i < count; i++) {
+            dots.push(i);
+        }
+        return dots;
+    }
 }
 
 export const carouselService = new CarouselService();

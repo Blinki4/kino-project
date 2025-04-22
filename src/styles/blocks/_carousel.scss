@@ -79,6 +79,7 @@
     align-items: center;
     padding-block: 20px;
     transition: var(--transition-duration);
+    column-gap: 10px;
   }
 }
 
@@ -93,4 +94,13 @@
   @include hover {
     background-color: var(--color-accent);
   }
+}
+
+.dot-active {
+  height: 12px;
+  width: 12px;
+  background-color: var(--color-accent);
+  border-radius: 999px;
+  transition: var(--transition-duration);
+  cursor: pointer;
 }

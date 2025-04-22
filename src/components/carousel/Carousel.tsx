@@ -13,7 +13,7 @@ const Carousel: FC<CarouselProps> = ({movies}) => {
         <div className={'container'}>
             <h2 className={'carousel__header'}>Новинки</h2>
             <CarouselList movies={movies}/>
-            <CarouselDots/>
+            <CarouselDots quantity={movies.length}/>
         </div>
     );
 };
