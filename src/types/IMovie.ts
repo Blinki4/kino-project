@@ -21,7 +21,7 @@ interface IMovieTrailers {
     url: string;
     name: string;
     site: string;
-    size: number;
+    size?: number;
     type: string;
 }
 
@@ -108,12 +108,12 @@ export type IMovie = {
     seasonsInfo?: IMovieSeasonsInfo[];
     budget: IMovieBudget;
     fees: IMovieFees;
-    premiere: IMoviePremiere;
+    premiere?: IMoviePremiere;
     similarMovies: IMovieSimilar[];
     sequelsAndPrequels: IMovieSimilar[];
     releaseYears: IMovieReleaseYears[];
-    top10: number;
-    top250: number;
+    top10: number | null;
+    top250: number | null;
     isSeries: boolean;
     lists: string[];
 }
