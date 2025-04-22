@@ -1,25 +1,11 @@
-import {FC, useEffect, useState} from 'react';
-
-import {carouselService} from "./carouselService.ts";
+import {FC} from 'react';
 
 interface CarouselDotsProps {
-    quantity: number,
+    dots: number[],
+    page: number,
 }
 
-const CarouselDots: FC<CarouselDotsProps> = ({quantity}) => {
-    const [page, setPage] = useState(0);
-    const dots = carouselService.getCarouselDotsArray(quantity);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            if (page === quantity) {
-                setPage(0)
-                return
-            }
-            setPage(prevState => prevState === quantity - 1 ? prevState = 0 : prevState + 1)
-        }, 5000);
-        return () => clearInterval(timer)
-    })
+const CarouselDots: FC<CarouselDotsProps> = ({dots, page}) => {
 
     return (
         <ul className={'carousel__dots'}>

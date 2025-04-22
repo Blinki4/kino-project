@@ -9,8 +9,8 @@ class CarouselService {
         }
     };
 
-    getCarouselDotsArray(count: number): Array<number> {
-        const dots: Array<number> = [];
+    getCarouselDotsArray(count: number): number[] {
+        const dots: number[] = [];
         for (let i = 0; i < count; i++) {
             dots.push(i);
         }
