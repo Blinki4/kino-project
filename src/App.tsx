@@ -13,6 +13,7 @@ import {
 import {Route, Routes} from "react-router-dom";
 import {pageConfig} from "./router/pagesConfig.ts";
 import MainPage from "./pages/MainPage.tsx";
+import MoviePage from "./pages/MoviePage.tsx";
 
 library.add(faS, faClapperboard, faFilm, faBookmark, faLaptop, faUser, faHouse, faMagnifyingGlass, faChevronRight, faChevronLeft)
 
@@ -27,6 +28,7 @@ function App() {
                 <Route path={pageConfig.series} element={<>SERIES PAGE</>}/>
                 <Route path={pageConfig.my} element={<>MY PAGE</>}/>
                 <Route path={pageConfig.profile} element={<>PROFILE PAGE</>}/>
+                <Route path={pageConfig.movie} element={<MoviePage/>}/>
             </Routes>
         </>
     )

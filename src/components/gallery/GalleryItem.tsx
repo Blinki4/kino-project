@@ -4,18 +4,22 @@ import useHover from "../../hooks/useHover.ts";
 import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
+import {galleryService} from "./galleryService.ts";
+import {useNavigate} from "react-router-dom";
+
 interface GalleryItemProps {
     movie: IMovie,
 }
 
 const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
+    const navigate = useNavigate()
     const posterRef = useRef<HTMLImageElement>(null);
     const isHover = useHover(posterRef);
 
     const parsedLength = getParsedMovieLength(movie.movieLength)
 
     return (
-        <li className={'gallery__item'}>
+        <li className={'gallery__item'} onClick={() => galleryService.navigateToMovie(movie.id, navigate)}>
             <div className={'card'}>
                 <div ref={posterRef} className={'hover-wrapper'}>
                     <img src={movie.poster} alt={movie.poster} className={'card__poster'}/>

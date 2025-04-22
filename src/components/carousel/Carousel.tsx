@@ -48,7 +48,7 @@ const Carousel: FC<CarouselProps> = ({movies}) => {
             }
             setPage(prevState => prevState === dotsQuantity - 1 ? prevState = 0 : prevState + 1)
             carouselService.carouselScroll('right', carouselListRef, DESKTOP_SCROLL_CAROUSEL_OFFSET)
-        }, 3000);
+        }, 6000);
         return () => clearInterval(timer)
     })
 
