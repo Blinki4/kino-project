@@ -3,7 +3,7 @@ import Gallery from "../components/gallery/Gallery.tsx";
 import {IMovie} from "../types/IMovie.ts";
 import batmanPoster from "../assets/batman-poster.png";
 import Carousel from "../components/carousel/Carousel.tsx";
-import spiderPoster from "../assets/spider-man-bg.webp";
+import spiderPoster from "../assets/spider-man-bg.jpg";
 
 const MainPage: FC = () => {
     const galleryMovies: IMovie[] = [
@@ -191,7 +191,7 @@ const MainPage: FC = () => {
     const carouselMovies: IMovie[] = [
         {
             id: 0,
-            title: 'Batman',
+            title: 'Человек-паук: Через вселенные',
             year: 2018,
             poster: spiderPoster,
             rating: 8.2,

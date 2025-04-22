@@ -23,11 +23,11 @@
   }
 
   &__item {
+    position: relative;
     width: 100%;
   }
 
   &__poster {
-    position: relative;
     min-width: 1090px;
     height: 525px;
     border-radius: var(--border-radius-medium);
@@ -35,6 +35,37 @@
 
   &__icon {
     cursor: pointer;
+    transition: var(--transition-duration);
+
+    @include hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-title {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+  }
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
     transition: var(--transition-duration);
 
     @include hover {
