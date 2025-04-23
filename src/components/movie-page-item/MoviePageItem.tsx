@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {IMovie} from "../../types/IMovie.ts";
 import {FC} from "react";
 import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
+import {getRatingColor} from "../../utils/getRatingColor.ts";
 
 interface MoviePageItemProps {
     movie: IMovie,
@@ -72,9 +73,26 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
                 </div>
             </div>
             <div className={'movie__right-column'}>
-                <div className={'movie__rating'}>{movie.rating.kp.toFixed(1)}</div>
-                <div className={'movie__rating'}>{movie.rating.imdb.toFixed(1)}</div>
-                <div className={'movie__rating'}>{movie.rating.tmdb.toFixed(1)}</div>
+                <div className={'rating'}>
+                    <div className={'rating__item'}>
+                        <div className={'movie__rating ' + getRatingColor(movie.rating.kp)}>
+                            {movie.rating.kp.toFixed(1)}
+                        </div>
+                        <span className={'rating__name'}>Кинопоиск</span>
+                    </div>
+                    <div className={'rating__item'}>
+                        <div className={'movie__rating ' + getRatingColor(movie.rating.imdb)}>
+                            {movie.rating.imdb.toFixed(1)}
+                        </div>
+                        <span className={'rating__name'}>IMDB</span>
+                    </div>
+                    <div className={'rating__item'}>
+                        <div className={'movie__rating ' + getRatingColor(movie.rating.tmdb)}>
+                            {movie.rating.tmdb.toFixed(1)}
+                        </div>
+                        <span className={'rating__name'}>TMDB</span>
+                    </div>
+                </div>
             </div>
         </div>
     );

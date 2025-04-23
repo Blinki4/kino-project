@@ -80,3 +80,42 @@
     color: var(--color-gray);
   }
 }
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 15px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &-gold {
+    background-image: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &-high {
+    color: var(--color-green);
+  }
+
+  &-medium {
+    color: var(--color-yellow);
+  }
+
+  &-low {
+    color: var(--color-accent);
+  }
+}

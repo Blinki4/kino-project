@@ -26,7 +26,7 @@ const MoviePage: FC = () => {
         "rating": {
             "kp": 7.824,
             "imdb": 6.8,
-            "tmdb": 8.12,
+            "tmdb": 4.2,
             "filmCritics": 5.4,
             "russianFilmCritics": 0,
             "await": 0,
