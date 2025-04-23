@@ -57,13 +57,13 @@ interface Fees {
 }
 
 interface IMoviePremiere {
-    country: string;
-    world: Date;
-    russia: Date;
-    digital: string;
-    cinema: Date;
-    bluray: string;
-    dvd: string;
+    country: string | null;
+    world: Date | null | string;
+    russia: Date | null | string;
+    digital: string | null;
+    cinema: Date | null;
+    bluray: string | null;
+    dvd: string | null;
 }
 
 interface IMovieSimilar {

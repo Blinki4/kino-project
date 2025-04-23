@@ -1,6 +1,9 @@
 import {FC} from "react";
 import {useParams} from "react-router-dom";
 import {IMovie} from "../types/IMovie.ts";
+import Button from "../components/ui/Button.tsx";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {getParsedMovieLength} from "../utils/getParsedMovieLength.ts";
 
 type MoviePageParams = {
     id: string
@@ -238,17 +241,85 @@ const MoviePage: FC = () => {
         logo: {
             url: ""
         },
-        premiere: undefined,
+        premiere: {
+            "country": null,
+            "digital": null,
+            "cinema": null,
+            "bluray": "2009-08-04T00:00:00.000Z",
+            "dvd": "2009-03-10T00:00:00.000Z",
+            "russia": "2001-10-18T00:00:00.000Z",
+            "world": "2001-06-18T00:00:00.000Z"
+        },
         similarMovies: [],
         sequelsAndPrequels: [],
         releaseYears: []
     };
+    const movieLength = getParsedMovieLength(movie.movieLength)
 
     return (
         <div className={'page'}>
             <div className={'container'}>
-                <h1>{movie.name}</h1>
-                <img src={movie.poster.url} alt=""/>
+                <div className={'movie'}>
+                    <div className={'movie__left-column'}>
+                        <img className={'movie__poster'} src={movie.poster.url} alt={movie.name}/>
+                    </div>
+                    <div className={'movie__info'}>
+                        <div className={'movie__name'}>{movie.name}</div>
+                        <div className={'movie__original-name'}>{`${movie.alternativeName} (${movie.year})`}</div>
+                        <div className={'movie__buttons'}>
+                            <Button>Смотреть</Button>
+                            <Button className={'movie__buttons-bookmark'}>
+                                <FontAwesomeIcon icon={["fas", 'bookmark']}/>
+                            </Button>
+                        </div>
+                        <div className={'about__title'}>О фильме</div>
+                        <div className={'about'}>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Год производства</div>
+                                <div className={'about__value'}>{movie.year}</div>
+                            </div>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Страна</div>
+                                <div className={'about__value'}>{movie.countries.map(country =>
+                                    `${country.name} `
+                                )}</div>
+                            </div>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Жанр</div>
+                                <div className={'about__value'}>{movie.genres.map(genre =>
+                                    `${genre.name} `
+                                )}</div>
+                            </div>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Слоган</div>
+                                <div className={'about__value'}>{movie.slogan}</div>
+                            </div>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Возраст</div>
+                                <div className={'about__value'}>{`${movie.ageRating}+`}</div>
+                            </div>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Премьера</div>
+                                <div className={'about__value'}>{movie.premiere?.world?.toString()}</div>
+                            </div>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Длительность</div>
+                                <div className={'about__value'}>{movieLength}</div>
+                            </div>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Бюджет</div>
+                                <div className={'about__value'}>{movie.budget.currency + movie.budget.value}</div>
+                            </div>
+                            <div className={'about__row'}>
+                                <div className={'about__name'}>Сборы</div>
+                                <div
+                                    className={'about__value'}>{movie.fees.world.currency + movie.fees.world.value}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={'movie__right-column'}></div>
+                </div>
+
             </div>
         </div>
     );

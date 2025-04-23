@@ -1,0 +1,72 @@
+@import "../media";
+
+.movie {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding-block: 20px;
+  column-gap: 20px;
+
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__name {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  &__original-name {
+    color: var(--color-gray);
+  }
+
+  &__poster {
+    min-width: 300px;
+    height: 450px;
+    border-radius: var(--border-radius-medium);
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: 10px;
+    column-gap: 20px;
+
+    &-bookmark {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      column-gap: 20px;
+    }
+
+    &__name {
+      font-size: 0.9rem;
+    }
+
+    &__value {
+      font-size: 0.9rem;
+      color: var(--color-gray);
+    }
+  }
+}
