@@ -25,13 +25,14 @@
   color: var(--color-light);
   border: none;
   outline: none;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-large);
   height: var(--button-height);
   cursor: pointer;
   padding: 10px 15px;
   transition: var(--transition-duration);
 
   @include hover {
+    transform: scale(1.2);
     background-color: var(--color-light);
     color: var(--color-dark);
   }

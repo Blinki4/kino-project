@@ -17,6 +17,10 @@ class CarouselService {
         }
         return dots;
     }
+
+    navigateToMovie(id: number, navigate: (route: string) => void) {
+        navigate('/movie/' + id);
+    };
 }
 
 export const carouselService = new CarouselService();

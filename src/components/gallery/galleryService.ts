@@ -12,6 +12,10 @@ class GalleryService {
             ref.current!.scrollLeft += scrollOffset;
         }
     };
+
+    navigateToMovie(id: number, navigate: (route: string) => void) {
+        navigate('/movie/' + id);
+    };
 }
 
 export const galleryService = new GalleryService();
