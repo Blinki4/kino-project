@@ -13,6 +13,13 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+    &-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
   }
 
   &__name {
@@ -57,26 +64,18 @@
   width: 100%;
   row-gap: 10px;
 
-  &__title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 50px;
-    margin-bottom: 20px;
-  }
-
   &__row {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     column-gap: 20px;
+    border-bottom: 1px solid rgba(56, 56, 56, 0.3);
   }
 
   &__name {
-    font-size: 0.9rem;
   }
 
   &__value {
-    font-size: 0.9rem;
     color: var(--color-gray);
   }
 }

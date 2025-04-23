@@ -27,7 +27,7 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
                     </Button>
                 </div>
                 <div className={'movie__short-description'}>{movie.shortDescription}</div>
-                <div className={'about__title'}>О фильме</div>
+                <div className={'movie__info-title'}>О фильме</div>
                 <div className={'about'}>
                     <div className={'about__row'}>
                         <div className={'about__name'}>Год производства</div>
@@ -71,6 +71,11 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
                             className={'about__value'}>{movie.fees.world.currency + movie.fees.world.value}</div>
                     </div>
                 </div>
+                <div className={'movie__info-title'}>Описание</div>
+                <div className={'movie__description'}>
+                    {movie.description}
+                </div>
+                <div className={'movie__info-title'}>Смотреть</div>
             </div>
             <div className={'movie__right-column'}>
                 <div className={'rating'}>
