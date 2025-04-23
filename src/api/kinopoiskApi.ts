@@ -19,4 +19,19 @@ export default class KinopoiskApi {
 
         return response.data.docs
     }
+
+    static async getCarouselMovies(limit: number, page: number) {
+        const response = await axios.get<IMovies>(this.baseUrl + '/movie', {
+            params: {
+                lists: 'theme_comics', //TODO Другой список
+                limit,
+                page,
+            },
+            headers: {
+                'X-API-KEY': this.apiKey,
+            }
+        });
+
+        return response.data.docs
+    }
 }
