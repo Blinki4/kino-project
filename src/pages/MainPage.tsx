@@ -4,6 +4,9 @@ import Carousel from "../components/carousel/Carousel.tsx";
 import KinopoiskApi from "../api/kinopoiskApi.ts";
 import {IMovie} from "../types/IMovie.ts";
 import {useAppStore} from "../store/appStore.ts";
+import 'ldrs/react/Ring.css'
+import Loader from "../components/ui/Loader.tsx";
+
 
 const MainPage: FC = () => {
     const [carouselMovies, setCarouselMovies] = useState<IMovie[]>([]);
@@ -34,12 +37,10 @@ const MainPage: FC = () => {
     }
 
     return (
-
         isLoading
             ?
-            <h1>LOADER</h1>
+            <Loader/>
             :
-
             <div className={'page'}>
                 <Carousel movies={carouselMovies}/>
                 <Gallery movies={popularMovies} title={'Фильмы-новинки'}/>

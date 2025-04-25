@@ -3,7 +3,7 @@ import {IMovies} from "../types/IMovies.ts";
 import {serializeParams} from "../utils/serializeParams.ts";
 
 export default class KinopoiskApi {
-    static API_KEY: string = 'A79KAPT-Z90MT84-NJ6H62R-H6MHJZD';
+    static API_KEY: string = 'VCCBQAT-4S0M72V-HXNAXR2-QP1D14D';
     static BASE_URL: string = 'https://api.kinopoisk.dev/v1.4';
 
     static async getCarouselMovies(limit: number, page: number) {
