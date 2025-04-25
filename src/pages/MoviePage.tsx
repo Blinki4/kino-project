@@ -31,6 +31,10 @@ const MoviePage: FC = () => {
         fetchAll()
     }, []);
 
+    if (!movie) {
+        return <h1>ERROR</h1>
+    }
+
     return (
         isLoading
             ?
@@ -42,7 +46,7 @@ const MoviePage: FC = () => {
                 :
                 <div className={'page'}>
                     <div className={'container'}>
-                        <MoviePageItem movie={movie!}/>
+                        <MoviePageItem movie={movie}/>
                     </div>
                 </div>
     );
