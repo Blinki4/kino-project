@@ -1,9 +1,10 @@
 import axios from 'axios'
 import {IMovies} from "../types/IMovies.ts";
 import {serializeParams} from "../utils/serializeParams.ts";
+import {IMovie} from "../types/IMovie.ts";
 
 export default class KinopoiskApi {
-    static API_KEY: string = 'VCCBQAT-4S0M72V-HXNAXR2-QP1D14D';
+    static API_KEY: string = 'B016V3C-ZENM92A-N6JZY88-33YDKMX';
     static BASE_URL: string = 'https://api.kinopoisk.dev/v1.4';
 
     static async getCarouselMovies(limit: number, page: number) {
@@ -47,7 +48,7 @@ export default class KinopoiskApi {
         params.append('page', page.toString());
         params.append('type', 'tv-series');
         serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'seriesLength'])
-        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+        const response = await axios.get<IMovies>(`${this.BASE_URL}/movie`, {
             params,
             headers: {
                 'X-API-KEY': this.API_KEY,
@@ -64,7 +65,7 @@ export default class KinopoiskApi {
         params.append('page', page.toString());
         params.append('type', 'cartoon');
         serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp'])
-        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+        const response = await axios.get<IMovies>(`${this.BASE_URL}/movie`, {
             params,
             headers: {
                 'X-API-KEY': this.API_KEY,
@@ -73,5 +74,15 @@ export default class KinopoiskApi {
 
         response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
         return response.data.docs
+    }
+
+    static async getMovie(id: string) {
+        const response = await axios.get<IMovie>(`${this.BASE_URL}/movie/${id}`, {
+            headers: {
+                'X-API-KEY': this.API_KEY,
+            }
+        });
+
+        return response.data
     }
 }
