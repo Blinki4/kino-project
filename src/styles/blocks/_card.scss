@@ -91,16 +91,18 @@
     align-items: flex-end;
     justify-content: space-between;
     width: 100%;
+    column-gap: 5px;
   }
 
   &__info {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
+    overflow-x: hidden;
+
 
     &-genre {
       display: flex;
-      justify-content: flex-end;
       align-items: flex-end;
       width: 100%;
       white-space: nowrap;

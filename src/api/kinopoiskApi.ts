@@ -1,37 +1,60 @@
 import axios from 'axios'
 import {IMovies} from "../types/IMovies.ts";
+import {serializeParams} from "../utils/serializeParams.ts";
 
 export default class KinopoiskApi {
-    static apiKey: string = 'A79KAPT-Z90MT84-NJ6H62R-H6MHJZD';
-    static baseUrl: string = 'https://api.kinopoisk.dev/v1.4';
+    static API_KEY: string = 'A79KAPT-Z90MT84-NJ6H62R-H6MHJZD';
+    static BASE_URL: string = 'https://api.kinopoisk.dev/v1.4';
 
-    static async getPopularMovies(limit: number, page: number) {
-        const response = await axios.get<IMovies>(this.baseUrl + '/movie', {
-            params: {
-                lists: 'theme_comics', //TODO Другой список
-                limit,
-                page,
-            },
+    static async getCarouselMovies(limit: number, page: number) {
+        const params = new URLSearchParams();
+        params.append('limit', limit.toString());
+        params.append('page', page.toString());
+        params.append('type', 'movie');
+        params.append('lists', 'popular-films');
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength', 'shortDescription'])
+        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+            params,
             headers: {
-                'X-API-KEY': this.apiKey,
+                'X-API-KEY': this.API_KEY,
             }
         });
 
         return response.data.docs
     }
 
-    static async getCarouselMovies(limit: number, page: number) {
-        const response = await axios.get<IMovies>(this.baseUrl + '/movie', {
-            params: {
-                lists: 'theme_comics', //TODO Другой список
-                limit,
-                page,
-            },
+    static async getPopularMovies(limit: number, page: number) {
+        const params = new URLSearchParams();
+        params.append('limit', limit.toString());
+        params.append('page', page.toString());
+        params.append('type', 'movie');
+        params.append('lists', 'popular-films');
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength'])
+        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+            params,
             headers: {
-                'X-API-KEY': this.apiKey,
+                'X-API-KEY': this.API_KEY,
             }
         });
 
+        response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return response.data.docs
+    }
+
+    static async getPopularSeries(limit: number, page: number) {
+        const params = new URLSearchParams();
+        params.append('limit', limit.toString());
+        params.append('page', page.toString());
+        params.append('type', 'tv-series');
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'seriesLength'])
+        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+            params,
+            headers: {
+                'X-API-KEY': this.API_KEY,
+            }
+        });
+
+        response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
         return response.data.docs
     }
 }
