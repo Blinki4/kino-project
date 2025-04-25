@@ -31,7 +31,7 @@ const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
                             <div className={'hover__info-wrapper'}>
                                 <p className={'hover__rating ' + getRatingColor(movie.rating.kp)}>{movie.rating.kp.toFixed(1)}</p>
                                 <div className={'hover__info'}>
-                                    <p className={'hover__info-duration'}>{movie.type === 'movie' ? parsedLength : ''}</p>
+                                    <p className={'hover__info-duration'}>{movie.type !== 'tv-series' ? parsedLength : ''}</p>
                                     <p className={'hover__info-genre'}>{movie.genres[0].name}</p>
                                 </div>
                             </div>

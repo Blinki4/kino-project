@@ -57,4 +57,21 @@ export default class KinopoiskApi {
         response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
         return response.data.docs
     }
+
+    static async getPopularCartoons(limit: number, page: number) {
+        const params = new URLSearchParams();
+        params.append('limit', limit.toString());
+        params.append('page', page.toString());
+        params.append('type', 'cartoon');
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp'])
+        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+            params,
+            headers: {
+                'X-API-KEY': this.API_KEY,
+            }
+        });
+
+        response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return response.data.docs
+    }
 }
