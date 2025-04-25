@@ -1,7 +1,7 @@
 import {FC, useEffect, useRef, useState} from "react";
 import CarouselDots from "./CarouselDots.tsx";
 import CarouselList from "./CarouselList.tsx";
-import {carouselService} from "./carouselService.ts";
+import {carouselService} from "../../services/carouselService.ts";
 import {DESKTOP_SCROLL_CAROUSEL_OFFSET} from "../../constants/constants.ts";
 import {IMovie} from "../../types/IMovie.ts";
 

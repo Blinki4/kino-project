@@ -3,7 +3,7 @@ import useHover from "../../hooks/useHover.ts";
 import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-import {galleryService} from "./galleryService.ts";
+import {galleryService} from "../../services/galleryService.ts";
 import {useNavigate} from "react-router-dom";
 import {IMovie} from "../../types/IMovie.ts";
 import {getRatingColor} from "../../utils/getRatingColor.ts";

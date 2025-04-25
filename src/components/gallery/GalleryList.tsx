@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {FC, useRef} from "react";
 import GalleryItem from "./GalleryItem.tsx";
-import {galleryService} from "./galleryService.ts";
+import {galleryService} from "../../services/galleryService.ts";
 import {IMovie} from "../../types/IMovie.ts";
 
 

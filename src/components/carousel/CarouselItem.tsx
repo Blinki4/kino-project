@@ -2,7 +2,7 @@ import {FC} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Button from "../ui/Button.tsx";
 
-import {carouselService} from "./carouselService.ts";
+import {carouselService} from "../../services/carouselService.ts";
 import {useNavigate} from "react-router-dom";
 import {IMovie} from "../../types/IMovie.ts";
 
