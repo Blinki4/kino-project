@@ -104,11 +104,13 @@
     &-genre {
       display: flex;
       align-items: flex-end;
+      justify-content: flex-end;
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       text-transform: capitalize;
+      font-size: 0.8rem;
     }
   }
 

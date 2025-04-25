@@ -13,7 +13,7 @@ export default class KinopoiskApi {
         params.append('page', page.toString());
         params.append('type', 'movie');
         params.append('lists', 'popular-films');
-        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength', 'shortDescription'])
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength', 'shortDescription', 'budget.value'])
         const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
             params,
             headers: {
@@ -30,7 +30,7 @@ export default class KinopoiskApi {
         params.append('page', page.toString());
         params.append('type', 'movie');
         params.append('lists', 'popular-films');
-        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength'])
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength', 'budget.value'])
         const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
             params,
             headers: {
@@ -47,7 +47,7 @@ export default class KinopoiskApi {
         params.append('limit', limit.toString());
         params.append('page', page.toString());
         params.append('type', 'tv-series');
-        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'seriesLength'])
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'seriesLength', 'budget.value'])
         const response = await axios.get<IMovies>(`${this.BASE_URL}/movie`, {
             params,
             headers: {
@@ -64,7 +64,7 @@ export default class KinopoiskApi {
         params.append('limit', limit.toString());
         params.append('page', page.toString());
         params.append('type', 'cartoon');
-        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp'])
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'budget.value'])
         const response = await axios.get<IMovies>(`${this.BASE_URL}/movie`, {
             params,
             headers: {
