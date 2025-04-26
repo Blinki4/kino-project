@@ -26,7 +26,7 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
                     <ul className={'movie__trailers-list'}>
                         {movie?.videos?.trailers?.map(trailer =>
                             <li className={'movie__trailers-item'}>
-                                <iframe className={'movie__trailer'} src={trailer.url}></iframe>
+                                <iframe key={trailer.name} className={'movie__trailer'} src={trailer.url}></iframe>
                             </li>
                         )}
                     </ul>
