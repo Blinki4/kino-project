@@ -91,21 +91,26 @@
     align-items: flex-end;
     justify-content: space-between;
     width: 100%;
+    column-gap: 5px;
   }
 
   &__info {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
+    overflow-x: hidden;
+
 
     &-genre {
       display: flex;
-      justify-content: center;
       align-items: flex-end;
+      justify-content: flex-end;
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-transform: capitalize;
+      font-size: 0.8rem;
     }
   }
 

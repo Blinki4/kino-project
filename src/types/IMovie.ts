@@ -81,39 +81,39 @@ interface IMovieReleaseYears {
     end: number;
 }
 
-export type IMovie = {
-    id: number;
-    name: string;
-    alternativeName: string;
-    enName: string;
-    type: string;
-    typeNumber: number;
-    year: number;
-    description: string;
-    shortDescription: string;
-    slogan: string;
-    status: string;
-    rating: IMovieRating;
-    votes: IMovieRating;
-    movieLength: number;
-    ratingMpaa: string;
-    ageRating: number;
-    logo: { url: string };
-    poster: IMoviePoster;
-    backdrop: IMovieBackdrop;
-    videos: { trailers: IMovieTrailers[] };
-    genres: { name: string }[];
-    countries: { name: string }[];
-    persons: IMoviePersons[];
-    seasonsInfo?: IMovieSeasonsInfo[];
-    budget: IMovieBudget;
-    fees: IMovieFees;
-    premiere?: IMoviePremiere;
-    similarMovies: IMovieSimilar[];
-    sequelsAndPrequels: IMovieSimilar[];
-    releaseYears: IMovieReleaseYears[];
-    top10: number | null;
-    top250: number | null;
-    isSeries: boolean;
-    lists: string[];
+export interface IMovie {
+    id: number,
+    name: string,
+    alternativeName: string,
+    enName: string,
+    type: string,
+    typeNumber: number,
+    year: number,
+    description: string,
+    shortDescription: string,
+    slogan: string,
+    status: string,
+    rating: IMovieRating,
+    votes: IMovieRating,
+    movieLength: number,
+    ratingMpaa: string,
+    ageRating: number,
+    logo: { url: string },
+    poster: IMoviePoster,
+    backdrop: IMovieBackdrop,
+    videos: { trailers: IMovieTrailers[] },
+    genres: { name: string }[],
+    countries: { name: string }[],
+    persons: IMoviePersons[],
+    seasonsInfo?: IMovieSeasonsInfo[],
+    budget: IMovieBudget,
+    fees: IMovieFees,
+    premiere?: IMoviePremiere,
+    similarMovies: IMovieSimilar[],
+    sequelsAndPrequels: IMovieSimilar[],
+    releaseYears: IMovieReleaseYears[],
+    top10: number | null,
+    top250: number | null,
+    isSeries: boolean,
+    lists: string[],
 }

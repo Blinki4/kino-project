@@ -1,84 +1,53 @@
 import {FC, useEffect, useState} from "react";
 import Gallery from "../components/gallery/Gallery.tsx";
-import {IMovieLess} from "../types/IMovieLess.ts";
 import Carousel from "../components/carousel/Carousel.tsx";
-import spiderPoster from "../assets/spider-man-bg.jpg";
 import KinopoiskApi from "../api/kinopoiskApi.ts";
 import {IMovie} from "../types/IMovie.ts";
+import {useAppStore} from "../store/appStore.ts";
+import 'ldrs/react/Ring.css'
+import Loader from "../components/ui/Loader.tsx";
 
 const MainPage: FC = () => {
-
-    const carouselMovies: IMovieLess[] = [
-        {
-            id: 0,
-            title: 'Человек-паук: Через вселенные',
-            year: 2018,
-            poster: spiderPoster,
-            rating: 8.2,
-            ageRating: 18,
-            country: 'USA',
-            movieLength: 183,
-        },
-        {
-            id: 1,
-            title: 'Spider-man',
-            year: 2011,
-            poster: spiderPoster,
-            rating: 7.1,
-            ageRating: 18,
-            country: 'USA',
-            movieLength: 13,
-        },
-        {
-            id: 2,
-            title: 'Третий',
-            year: 1998,
-            poster: spiderPoster,
-            rating: 4.4,
-            ageRating: 18,
-            country: 'Россия',
-            movieLength: 173,
-        },
-        {
-            id: 3,
-            title: 'Четвертый',
-            year: 1998,
-            poster: spiderPoster,
-            rating: 4.4,
-            ageRating: 18,
-            country: 'Россия',
-            movieLength: 173,
-        },
-        {
-            id: 4,
-            title: 'Пятый элемент',
-            year: 1998,
-            poster: spiderPoster,
-            rating: 4.4,
-            ageRating: 18,
-            country: 'Россия',
-            movieLength: 173,
-        },
-    ];
-
-    const [galleryMovies, setGalleryMovies] = useState<IMovie[]>([])
+    const [carouselMovies, setCarouselMovies] = useState<IMovie[]>([]);
+    const [popularMovies, setPopularMovies] = useState<IMovie[]>([]);
+    const [popularSeries, setPopularSeries] = useState<IMovie[]>([]);
+    const [popularCartoon, setPopularCartoon] = useState<IMovie[]>([])
+    const {isLoading, error, setIsLoading, setError} = useAppStore(store => store)
 
     const fetchAll = async () => {
-        setGalleryMovies(await KinopoiskApi.getPopularMovies(18, 1))
+        try {
+            setIsLoading(true)
+            setCarouselMovies(await KinopoiskApi.getCarouselMovies(5, 1));
+            setPopularMovies(await KinopoiskApi.getPopularMovies(18, 1));
+            setPopularSeries(await KinopoiskApi.getPopularSeries(18, 1));
+            setPopularCartoon(await KinopoiskApi.getPopularCartoons(18, 1));
+        } catch (e: unknown) {
+            const error = e as Error
+            setError(error.message)
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     useEffect(() => {
         fetchAll()
     }, []);
 
-
     return (
-        <div className={'page'}>
-            <Carousel movies={carouselMovies}/>
-            <Gallery movies={galleryMovies} title={'Фильмы-новинки'}/>
-            <Gallery movies={galleryMovies} title={'Сериалы'}/>
-            <Gallery movies={galleryMovies} title={'Мультфильмы'}/>
-        </div>
+        isLoading
+            ?
+            <Loader/>
+            :
+            error
+                ?
+                <h1>{error}</h1>
+                :
+                <div className={'page'}>
+                    <Carousel movies={carouselMovies}/>
+                    <Gallery movies={popularMovies} title={'Фильмы-новинки'}/>
+                    <Gallery movies={popularSeries} title={'Сериалы'}/>
+                    <Gallery movies={popularCartoon} title={'Мультфильмы'}/>
+                </div>
     );
 };
 

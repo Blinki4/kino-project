@@ -34,7 +34,6 @@
   &__poster {
     min-width: 300px;
     height: 450px;
-    border-radius: var(--border-radius-medium);
   }
 
   &__buttons {
@@ -55,6 +54,18 @@
   &__rating {
     font-size: 1.5rem;
     font-weight: 700;
+  }
+
+  &__left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  &__trailer {
+    border: none;
+    outline: none;
   }
 }
 
@@ -117,4 +128,8 @@
   &-low {
     color: var(--color-accent);
   }
+}
+
+.scroll-box {
+  opacity: 0;
 }

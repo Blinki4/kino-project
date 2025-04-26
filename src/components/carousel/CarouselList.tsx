@@ -1,11 +1,11 @@
 import {FC, RefObject} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {IMovieLess} from "../../types/IMovieLess.ts";
 import CarouselItem from "./CarouselItem.tsx";
 import {DESKTOP_SCROLL_CAROUSEL_OFFSET} from "../../constants/constants.ts";
+import {IMovie} from "../../types/IMovie.ts";
 
 interface CarouselListProps {
-    movies: IMovieLess[],
+    movies: IMovie[],
     scroll: (direction: string, ref: RefObject<null>, offset: number) => void,
     ref: RefObject<null>,
 }
