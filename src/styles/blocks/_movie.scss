@@ -63,6 +63,14 @@
     row-gap: 20px;
   }
 
+  &__trailers-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+  }
+
   &__trailer {
     border: none;
     outline: none;
