@@ -22,10 +22,20 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
         <div className={'movie'}>
             <div className={'movie__left-column'}>
                 <img className={'movie__poster'} src={movie?.poster.url} alt={movie?.name}/>
+                <div className={'movie__trailers'}>
+                    <ul className={'movie__trailers-list'}>
+                        {movie?.videos?.trailers?.map(trailer =>
+                            <li className={'movie__trailers-item'}>
+                                <iframe className={'movie__trailer'} src={trailer.url}></iframe>
+                            </li>
+                        )}
+                    </ul>
+                </div>
             </div>
             <div className={'movie__info'}>
                 <div className={'movie__name'}>{movie?.name}</div>
-                <div className={'movie__original-name'}>{`${movie?.alternativeName} (${movie?.year})`}</div>
+                <div
+                    className={'movie__original-name'}>{`${movie?.alternativeName || movie?.name} (${movie?.year})`}</div>
                 <div className={'movie__buttons'}>
                     <Button onClick={scrollToPlayer}>Смотреть</Button>
                     <Button className={'movie__buttons-bookmark'}>
@@ -69,12 +79,23 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
                     </div>
                     <div className={'about__row'}>
                         <div className={'about__name'}>Бюджет</div>
-                        <div className={'about__value'}>{movie?.budget?.currency + movie?.budget?.value}</div>
+                        <div
+                            className={'about__value'}>
+                            {movie?.budget?.value?.toLocaleString('en-US', {
+                                style: "currency",
+                                currency: 'USD'
+                            })}
+                        </div>
                     </div>
                     <div className={'about__row'}>
                         <div className={'about__name'}>Сборы</div>
                         <div
-                            className={'about__value'}>{movie?.fees?.world?.currency + movie?.fees?.world?.value}</div>
+                            className={'about__value'}>
+                            {movie?.fees?.world?.value?.toLocaleString('en-US', {
+                                style: "currency",
+                                currency: 'USD'
+                            })}
+                        </div>
                     </div>
                 </div>
                 <div className={'movie__info-title'}>Описание</div>
