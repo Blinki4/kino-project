@@ -5,11 +5,14 @@ interface ButtonProps {
     children: React.ReactNode;
     onClick?: () => void;
     className?: string;
+    height?: number;
+    width?: number;
 }
 
-const Button: FC<ButtonProps> = ({children, onClick, className}) => {
+const Button: FC<ButtonProps> = ({height, width, children, onClick, className}) => {
     return (
-        <button className={'button ' + className} type={'button'} onClick={onClick}>
+        <button style={{height: height, width: width}} className={'button ' + className} type={'button'}
+                onClick={onClick}>
             {children}
         </button>
     );
