@@ -1,4 +1,4 @@
-import {FC, useEffect} from "react";
+import {FC} from "react";
 import {IMovie} from "../../types/IMovie.ts";
 import {useNavigate} from "react-router-dom";
 
@@ -13,15 +13,13 @@ const SearchModal: FC<SearchModalProps> = ({visible, setVisible, searchResult}) 
 
     const navigateToMovie = (id: number) => {
         navigate(`/movie/${id}`)
-        location.reload()
+        if (location.href.includes('movie')) {
+            location.reload()
+        }
     }
 
     console.log(visible);
     console.log(setVisible)
-
-    useEffect(() => {
-        console.log('useEffect')
-    }, []);
 
     return (
         <div className={'search__modal'}>

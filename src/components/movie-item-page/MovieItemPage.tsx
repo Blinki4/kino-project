@@ -10,7 +10,7 @@ interface MoviePageItemProps {
     movie: IMovie,
 }
 
-const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
+const MovieItemPage: FC<MoviePageItemProps> = ({movie}) => {
     const movieLength = getParsedMovieLength(movie?.movieLength);
     const playerRef = useRef<HTMLHRElement>(null)
 
@@ -126,4 +126,4 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
     );
 };
 
-export default MoviePageItem;
+export default MovieItemPage;

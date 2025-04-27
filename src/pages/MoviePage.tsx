@@ -1,7 +1,7 @@
 import {FC, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {IMovie} from "../types/IMovie.ts";
-import MoviePageItem from "../components/movie-page-item/MoviePageItem.tsx";
+import MovieItemPage from "../components/movie-item-page/MovieItemPage.tsx";
 import {useAppStore} from "../store/appStore.ts";
 import KinopoiskApi from "../api/kinopoiskApi.ts";
 import Loader from "../components/ui/Loader.tsx";
@@ -42,7 +42,7 @@ const MoviePage: FC = () => {
                 :
                 <div className={'page'}>
                     <div className={'container'}>
-                        <MoviePageItem movie={movie!}/>
+                        <MovieItemPage movie={movie!}/>
                     </div>
                 </div>
     );
