@@ -1,31 +1,21 @@
 import {FC} from "react";
 import {IMovie} from "../../types/IMovie.ts";
 import {useNavigate} from "react-router-dom";
+import {searchService} from "../../services/searchService.ts";
 
 interface SearchModalProps {
-    visible: boolean;
-    setVisible: (visible: boolean) => void;
     searchResult: IMovie[];
 }
 
-const SearchModal: FC<SearchModalProps> = ({visible, setVisible, searchResult}) => {
+const SearchModal: FC<SearchModalProps> = ({searchResult}) => {
     const navigate = useNavigate()
-
-    const navigateToMovie = (id: number) => {
-        navigate(`/movie/${id}`)
-        if (location.href.includes('movie')) {
-            location.reload()
-        }
-    }
-
-    console.log(visible);
-    console.log(setVisible)
 
     return (
         <div className={'search__modal'}>
             <ul className={'search__modal-list'}>
                 {searchResult.map(movie =>
-                    <li onClick={() => navigateToMovie(movie.id)} key={movie.id} className={'search__modal-item'}>
+                    <li onClick={() => searchService.navigateToMovie(navigate, movie.id)} key={movie.id}
+                        className={'search__modal-item'}>
                         <div className={'search-card'}>
                             <img className={'search-card__poster'} src={movie.poster.url} alt={movie.name}/>
                             <div className={'search-card__info'}>

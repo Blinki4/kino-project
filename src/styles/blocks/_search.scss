@@ -1,6 +1,7 @@
 @import "../media";
 
 .search {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -51,9 +52,10 @@
   }
 
   &__modal {
+    position: absolute;
+    top: 50px;
     background-color: var(--color-dark);
     width: 70%;
-    height: 100%;
     z-index: 9000;
     border-radius: var(--border-radius-small);
     margin-top: 10px;

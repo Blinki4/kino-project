@@ -42,8 +42,21 @@
     column-gap: 20px;
 
     &-bookmark {
-      width: 40px;
-      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-icon {
+        height: 2rem;
+        cursor: pointer;
+        width: 2rem;
+        transition: var(--transition-duration);
+
+        @include hover {
+          scale: 1.2;
+          color: var(--color-yellow);
+        }
+      }
     }
   }
 
