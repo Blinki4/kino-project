@@ -5,12 +5,13 @@ import {FC, useRef} from "react";
 import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
 import {getRatingColor} from "../../utils/getRatingColor.ts";
 import KinoboxPlayer from "../KinoboxPlayer.tsx";
+import {getPremierDate} from "../../utils/getPremierDate.ts";
 
 interface MoviePageItemProps {
     movie: IMovie,
 }
 
-const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
+const MovieItemPage: FC<MoviePageItemProps> = ({movie}) => {
     const movieLength = getParsedMovieLength(movie?.movieLength);
     const playerRef = useRef<HTMLHRElement>(null)
 
@@ -25,8 +26,8 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
                 <div className={'movie__trailers'}>
                     <ul className={'movie__trailers-list'}>
                         {movie?.videos?.trailers?.map(trailer =>
-                            <li className={'movie__trailers-item'}>
-                                <iframe key={trailer.name} className={'movie__trailer'} src={trailer.url}></iframe>
+                            <li key={trailer.name} className={'movie__trailers-item'}>
+                                <iframe className={'movie__trailer'} src={trailer.url}></iframe>
                             </li>
                         )}
                     </ul>
@@ -38,9 +39,9 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
                     className={'movie__original-name'}>{`${movie?.alternativeName || movie?.name} (${movie?.year})`}</div>
                 <div className={'movie__buttons'}>
                     <Button onClick={scrollToPlayer}>Смотреть</Button>
-                    <Button className={'movie__buttons-bookmark'}>
-                        <FontAwesomeIcon icon={["fas", 'bookmark']}/>
-                    </Button>
+                    <div className={'movie__buttons-bookmark'}>
+                        <FontAwesomeIcon className={'movie__buttons-bookmark-icon'} icon={["fas", 'bookmark']}/>
+                    </div>
                 </div>
                 <div className={'movie__short-description'}>{movie?.shortDescription}</div>
                 <div className={'movie__info-title'}>О фильме</div>
@@ -71,7 +72,7 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
                     </div>
                     <div className={'about__row'}>
                         <div className={'about__name'}>Премьера</div>
-                        <div className={'about__value'}>{movie?.premiere?.world?.toString()}</div>
+                        <div className={'about__value'}>{getPremierDate(movie?.premiere?.world?.toString())}</div>
                     </div>
                     <div className={'about__row'}>
                         <div className={'about__name'}>Длительность</div>
@@ -126,4 +127,4 @@ const MoviePageItem: FC<MoviePageItemProps> = ({movie}) => {
     );
 };
 
-export default MoviePageItem;
+export default MovieItemPage;

@@ -21,7 +21,8 @@ const CarouselItem: FC<CarouselItemProps> = ({movie}) => {
                     {movie.name}
                 </div>
                 <div className={'carousel__buttons'}>
-                    <Button onClick={() => carouselService.navigateToMovie(movie.id, navigate)}>Смотреть</Button>
+                    <Button height={40}
+                            onClick={() => carouselService.navigateToMovie(movie.id, navigate)}>Смотреть</Button>
                     <FontAwesomeIcon className={'carousel__icon'} icon={["fas", 'bookmark']}/>
                 </div>
             </div>

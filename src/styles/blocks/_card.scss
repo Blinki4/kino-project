@@ -120,7 +120,7 @@
     transition: var(--transition-duration);
 
     @include hover {
-      color: var(--color-accent);
+      color: var(--color-yellow);
     }
   }
 }

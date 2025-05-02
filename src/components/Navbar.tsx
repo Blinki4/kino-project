@@ -2,6 +2,7 @@ import {FC} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 import {pageConfig} from "../router/pagesConfig.ts";
+import Search from "./search/Search.tsx";
 
 const Navbar: FC = () => {
     return (
@@ -38,10 +39,7 @@ const Navbar: FC = () => {
                         </Link>
                     </li>
                 </ul>
-                <div className={'search'}>
-                    <input className={'search__input'} type="text" placeholder={'Фильмы, сериалы'}/>
-                    <FontAwesomeIcon className={'search__icon'} icon={["fas", 'magnifying-glass']}/>
-                </div>
+                <Search/>
             </div>
             <div className={'navbar__profile-wrapper'}>
                 <Link to={pageConfig.profile}>

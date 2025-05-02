@@ -85,4 +85,19 @@ export default class KinopoiskApi {
 
         return response.data
     }
+
+    static async search(query: string, limit: number = 10, page: number = 1) {
+        const response = await axios.get<IMovies>(`${this.BASE_URL}/movie/search`, {
+            params: {
+                query,
+                limit,
+                page,
+            },
+            headers: {
+                'X-API-KEY': this.API_KEY,
+            }
+        });
+
+        return response.data.docs;
+    }
 }
