@@ -1,18 +1,18 @@
 import {FC, useRef} from "react";
-import useHover from "../../hooks/useHover.ts";
-import {getParsedMovieLength} from "../../utils/getParsedMovieLength.ts";
+import useHover from "../hooks/useHover.ts";
+import {getParsedMovieLength} from "../utils/getParsedMovieLength.ts";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-import {galleryService} from "../../services/galleryService.ts";
+import {galleryService} from "../services/galleryService.ts";
 import {useNavigate} from "react-router-dom";
-import {IMovie} from "../../types/IMovie.ts";
-import {getRatingColor} from "../../utils/getRatingColor.ts";
+import {IMovie} from "../types/IMovie.ts";
+import {getRatingColor} from "../utils/getRatingColor.ts";
 
 interface GalleryItemProps {
     movie: IMovie,
 }
 
-const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
+const MovieCard: FC<GalleryItemProps> = ({movie}) => {
     const navigate = useNavigate()
     const posterRef = useRef<HTMLImageElement>(null);
     const isHover = useHover(posterRef);
@@ -51,4 +51,4 @@ const GalleryItem: FC<GalleryItemProps> = ({movie}) => {
     );
 };
 
-export default GalleryItem;
+export default MovieCard;

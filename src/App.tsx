@@ -14,6 +14,7 @@ import {Route, Routes} from "react-router-dom";
 import {pageConfig} from "./router/pagesConfig.ts";
 import MainPage from "./pages/MainPage.tsx";
 import MoviePage from "./pages/MoviePage.tsx";
+import FilmsPage from "./pages/FilmsPage.tsx";
 
 library.add(faS, faClapperboard, faFilm, faBookmark, faLaptop, faUser, faHouse, faMagnifyingGlass, faChevronRight, faChevronLeft)
 
@@ -24,7 +25,7 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path={pageConfig.main} element={<MainPage/>}/>
-                <Route path={pageConfig.films} element={<>FILMS PAGE</>}/>
+                <Route path={pageConfig.films} element={<FilmsPage/>}/>
                 <Route path={pageConfig.series} element={<>SERIES PAGE</>}/>
                 <Route path={pageConfig.my} element={<>MY PAGE</>}/>
                 <Route path={pageConfig.profile} element={<>PROFILE PAGE</>}/>

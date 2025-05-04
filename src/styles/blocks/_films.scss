@@ -1,0 +1,14 @@
+.films {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: 40px;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+    row-gap: 20px;
+  }
+}
