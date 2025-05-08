@@ -21,7 +21,7 @@ export default class KinopoiskApi {
             }
         });
 
-        return response.data.docs
+        return response.data.docs;
     }
 
     static async getPopularMovies(limit: number, page: number) {
@@ -38,8 +38,11 @@ export default class KinopoiskApi {
             }
         });
 
-        response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
-        return response.data.docs
+        const movies = response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return {
+            movies,
+            pages: response.data.pages,
+        };
     }
 
     static async getPopularSeries(limit: number, page: number) {
@@ -55,8 +58,11 @@ export default class KinopoiskApi {
             }
         });
 
-        response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
-        return response.data.docs
+        const movies = response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return {
+            movies,
+            pages: response.data.pages,
+        };
     }
 
     static async getPopularCartoons(limit: number, page: number) {
