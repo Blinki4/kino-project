@@ -4,7 +4,7 @@ const Loader = () => {
     return (
         <div className={'loader'}>
             <Ring
-                size="100"
+                size="50"
                 stroke="6"
                 bgOpacity="0"
                 speed="2"
