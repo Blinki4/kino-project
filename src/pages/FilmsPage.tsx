@@ -18,7 +18,7 @@ const FilmsPage = () => {
         try {
             setIsLoading(true);
             const response = await KinopoiskApi.getPopularMovies(30, page)
-            setFilms([...films, ...response])
+            setFilms([...films, ...response.movies])
         } catch (e: unknown) {
             const error = e as Error
             setError(error.message)
