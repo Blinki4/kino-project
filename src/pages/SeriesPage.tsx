@@ -3,6 +3,7 @@ import {IMovie} from "../types/IMovie.ts";
 import MovieCard from "../components/MovieCard.tsx";
 import KinopoiskApi from "../api/kinopoiskApi.ts";
 import Loader from "../components/ui/Loader.tsx";
+import {useObserver} from "../hooks/useObserver.ts";
 
 const SeriesPage: FC = () => {
     const [series, setSeries] = useState<IMovie[]>([]);
@@ -10,27 +11,14 @@ const SeriesPage: FC = () => {
     const [error, setError] = useState<string>('');
     const [page, setPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(0);
-    const [totalPagesArray, setTotalPagesArray] = useState<number[]>([]);
     const lastElement = useRef<HTMLDivElement | null>(null)
-    const observer = useRef<IntersectionObserver | null>(null)
-
-    const getTotalPagesArray = (pages: number): number[] => {
-        const result = []
-
-        for (let i = 0; i < pages; i++) {
-            result.push(i + 1);
-        }
-
-        return result
-    }
-
+    
     const fetchFilms = async () => {
         try {
             setIsLoading(true);
             const response = await KinopoiskApi.getPopularSeries(24, page)
             setSeries([...series, ...response.movies]);
             setTotalPages(response.pages)
-            setTotalPagesArray(getTotalPagesArray(response.pages))
         } catch (e: unknown) {
             const error = e as Error
             setError(error.message)
@@ -39,18 +27,9 @@ const SeriesPage: FC = () => {
         }
     }
 
-    useEffect(() => {
-        if (isLoading) return;
-        if (observer.current) observer.current.disconnect();
-        const callback = function (entries, observer) {
-            if (entries[0].isIntersecting && page < totalPages) {
-                console.log(page)
-                setPage(page + 1)
-            }
-        }
-        observer.current = new IntersectionObserver(callback);
-        observer.current.observe(lastElement.current)
-    }, [isLoading]);
+    useObserver(lastElement, page < totalPages, isLoading, () => {
+        setPage(page + 1);
+    })
 
     useEffect(() => {
         fetchFilms()

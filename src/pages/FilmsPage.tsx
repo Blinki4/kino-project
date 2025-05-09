@@ -1,24 +1,24 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {IMovie} from "../types/IMovie.ts";
 import KinopoiskApi from "../api/kinopoiskApi.ts";
 import MovieCard from "../components/MovieCard.tsx";
 import Loader from "../components/ui/Loader.tsx";
+import {useObserver} from "../hooks/useObserver.ts";
 
 const FilmsPage = () => {
-    const [films, setFilms] = useState<IMovie[]>([]);
+    const [movies, setMovies] = useState<IMovie[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
-    const [page, setPage] = useState<number>(1)
+    const [page, setPage] = useState<number>(1);
+    const [totalPages, setTotalPages] = useState<number>(0);
     const lastElement = useRef<HTMLDivElement | null>(null)
-    const observer = useRef<IntersectionObserver | null>(null)
-
-    console.log(error)
 
     const fetchFilms = async () => {
         try {
             setIsLoading(true);
-            const response = await KinopoiskApi.getPopularMovies(30, page)
-            setFilms([...films, ...response.movies])
+            const response = await KinopoiskApi.getPopularMovies(24, page)
+            setMovies([...movies, ...response.movies]);
+            setTotalPages(response.pages)
         } catch (e: unknown) {
             const error = e as Error
             setError(error.message)
@@ -27,36 +27,14 @@ const FilmsPage = () => {
         }
     }
 
+    useObserver(lastElement, page < totalPages, isLoading, () => {
+        setPage(page + 1);
+    })
 
     useEffect(() => {
-        const callback = function () {
-            if (isLoading) {
-                return
-            }
-            console.log(page)
-            setPage((prev) => prev + 1)
-        }
-        observer.current = new IntersectionObserver(callback)
-        observer.current.observe(lastElement.current!)
-    }, [])
-
-
-    useEffect(() => {
-        if (isLoading) {
-            return
-        }
         fetchFilms()
-    }, [page])
-
+    }, [page]);
     return (
-        // isLoading
-        //     ?
-        //     <Loader/>
-        //     :
-        //     error
-        //         ?
-        //         <h1>{error}</h1>
-        //         :
         <div className={'page'}>
             <div className={'container'}>
                 ФИЛЬТРЫ
@@ -64,13 +42,15 @@ const FilmsPage = () => {
             <div className={'container'}>
                 <div className={'films'}>
                     <ul className={'films__list'}>
-                        {films.map((movie: IMovie) =>
+                        {movies.map((movie: IMovie) =>
                             <MovieCard key={movie.id} movie={movie}/>
                         )}
                     </ul>
-                    {isLoading && <Loader/>}
-                    <div ref={lastElement}></div>
                 </div>
+                <div ref={lastElement}>
+
+                </div>
+                {isLoading && <Loader/>}
             </div>
         </div>
     );
