@@ -36,23 +36,27 @@ const FilmsPage = () => {
         fetchFilms()
     }, [page]);
     return (
-        <div className={'page'}>
-            <div className={'container'}>
-                <Filters/>
-            </div>
-            <div className={'container'}>
-                <div className={'films'}>
-                    <ul className={'films__list'}>
-                        {movies.map((movie: IMovie) =>
-                            <MovieCard key={movie.id} movie={movie}/>
-                        )}
-                    </ul>
+        error
+            ?
+            <h1>{error}</h1>
+            :
+            <div className={'page'}>
+                <div className={'container'}>
+                    <Filters/>
                 </div>
-                <div ref={lastElement}>
+                <div className={'container'}>
+                    <div className={'films'}>
+                        <ul className={'films__list'}>
+                            {movies.map((movie: IMovie) =>
+                                <MovieCard key={movie.id} movie={movie}/>
+                            )}
+                        </ul>
+                    </div>
+                    <div ref={lastElement}>
+                    </div>
+                    {isLoading && <Loader/>}
                 </div>
-                {isLoading && <Loader/>}
             </div>
-        </div>
     );
 };
 
