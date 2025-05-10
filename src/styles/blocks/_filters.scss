@@ -26,6 +26,13 @@
 
   &__input {
     width: 250px;
+    height: var(--genres-elements-height);
+    padding-inline: 20px;
+    background-color: var(--color-gray);
+    color: var(--color-light);
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius-medium);
   }
 
   &__option {

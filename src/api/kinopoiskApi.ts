@@ -5,7 +5,7 @@ import {IMovie} from "../types/IMovie.ts";
 import {IGenre} from "../types/IGenre.ts";
 
 export default class KinopoiskApi {
-    static API_KEY: string = 'B016V3C-ZENM92A-N6JZY88-33YDKMX';
+    static API_KEY: string = 'A79KAPT-Z90MT84-NJ6H62R-H6MHJZD';
     static BASE_URL: string = 'https://api.kinopoisk.dev/v1.4';
 
     static async getCarouselMovies(limit: number, page: number) {
