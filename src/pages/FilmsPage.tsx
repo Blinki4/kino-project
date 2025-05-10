@@ -1,9 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {IMovie} from "../types/IMovie.ts";
 import KinopoiskApi from "../api/kinopoiskApi.ts";
 import MovieCard from "../components/MovieCard.tsx";
 import Loader from "../components/ui/Loader.tsx";
 import {useObserver} from "../hooks/useObserver.ts";
+import Filters from "../components/filters/Filters.tsx";
 
 const FilmsPage = () => {
     const [movies, setMovies] = useState<IMovie[]>([]);
@@ -37,7 +38,7 @@ const FilmsPage = () => {
     return (
         <div className={'page'}>
             <div className={'container'}>
-                ФИЛЬТРЫ
+                <Filters/>
             </div>
             <div className={'container'}>
                 <div className={'films'}>
@@ -48,7 +49,6 @@ const FilmsPage = () => {
                     </ul>
                 </div>
                 <div ref={lastElement}>
-
                 </div>
                 {isLoading && <Loader/>}
             </div>

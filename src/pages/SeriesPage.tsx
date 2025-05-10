@@ -1,9 +1,10 @@
-import React, {FC, use, useEffect, useRef, useState} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 import {IMovie} from "../types/IMovie.ts";
 import MovieCard from "../components/MovieCard.tsx";
 import KinopoiskApi from "../api/kinopoiskApi.ts";
 import Loader from "../components/ui/Loader.tsx";
 import {useObserver} from "../hooks/useObserver.ts";
+import Filters from "../components/filters/Filters.tsx";
 
 const SeriesPage: FC = () => {
     const [series, setSeries] = useState<IMovie[]>([]);
@@ -12,7 +13,7 @@ const SeriesPage: FC = () => {
     const [page, setPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(0);
     const lastElement = useRef<HTMLDivElement | null>(null)
-    
+
     const fetchFilms = async () => {
         try {
             setIsLoading(true);
@@ -37,7 +38,7 @@ const SeriesPage: FC = () => {
     return (
         <div className={'page'}>
             <div className={'container'}>
-                ФИЛЬТРЫ
+                <Filters/>
             </div>
             <div className={'container'}>
                 <div className={'films'}>
