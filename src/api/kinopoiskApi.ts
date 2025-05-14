@@ -5,7 +5,7 @@ import {IMovie} from "../types/IMovie.ts";
 import {IGenre} from "../types/IGenre.ts";
 
 export default class KinopoiskApi {
-    static API_KEY: string = 'VCCBQAT-4SOM72V-HXNAXR2-QP1D14D';
+    static API_KEY: string = 'B016V3C-ZENM92A-N6JZY88-33YDKMX';
     static BASE_URL: string = 'https://api.kinopoisk.dev/v1.4';
 
     static async getCarouselMovies(limit: number, page: number) {
@@ -25,12 +25,21 @@ export default class KinopoiskApi {
         return response.data.docs;
     }
 
-    static async getPopularMovies(limit: number, page: number) {
+    static async getPopularMovies(limit: number, page: number, genre: string = '', year: string = '', rating: string = '') {
         const params = new URLSearchParams();
         params.append('limit', limit.toString());
         params.append('page', page.toString());
         params.append('type', 'movie');
         params.append('lists', 'popular-films');
+        if (genre) {
+            params.append('genre.name', genre);
+        }
+        if (year) {
+            params.append('year', year);
+        }
+        if (rating) {
+            params.append('rating.kp', rating);
+        }
         serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength', 'budget.value'])
         const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
             params,

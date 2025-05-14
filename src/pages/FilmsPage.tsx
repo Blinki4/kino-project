@@ -5,6 +5,7 @@ import MovieCard from "../components/MovieCard.tsx";
 import Loader from "../components/ui/Loader.tsx";
 import {useObserver} from "../hooks/useObserver.ts";
 import Filters from "../components/filters/Filters.tsx";
+import {useFiltersStore} from "../store/filtersStore.ts";
 
 const FilmsPage = () => {
     const [movies, setMovies] = useState<IMovie[]>([]);
@@ -13,24 +14,33 @@ const FilmsPage = () => {
     const [page, setPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(0);
     const lastElement = useRef<HTMLDivElement | null>(null)
+    const {genre, year, rating} = useFiltersStore(state => state);
 
     const fetchFilms = async () => {
         try {
             setIsLoading(true);
-            const response = await KinopoiskApi.getPopularMovies(24, page)
+            const response = await KinopoiskApi.getPopularMovies(24, page, genre, year, rating);
             setMovies([...movies, ...response.movies]);
-            setTotalPages(response.pages)
+            setTotalPages(response.pages);
         } catch (e: unknown) {
             const error = e as Error
-            setError(error.message)
+            setError(error.message);
         } finally {
             setIsLoading(false)
         }
     }
 
+    const fetchFilmsWithFilters = () => {
+    }
+
     useObserver(lastElement, page < totalPages, isLoading, () => {
         setPage(page + 1);
     })
+
+    useEffect(() => {
+        const response = await KinopoiskApi.getPopularMovies(24, page, genre, year, rating);
+        setMovies([...movies, ...response.movies]);
+    }, [genre, year, rating]);
 
     useEffect(() => {
         fetchFilms()
