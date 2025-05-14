@@ -45,6 +45,10 @@ const FilmsPage = () => {
     })
 
     useEffect(() => {
+        setPage(1)
+    }, [genre, year, rating]);
+
+    useEffect(() => {
         fetchFilms()
     }, [page]);
     return (
