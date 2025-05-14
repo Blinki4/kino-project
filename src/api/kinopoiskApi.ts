@@ -60,7 +60,36 @@ export default class KinopoiskApi {
         if (rating) {
             params.append('rating.kp', rating);
         }
-        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength', 'budget.value'])
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength',])
+        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+            params,
+            headers: {
+                'X-API-KEY': this.API_KEY,
+            }
+        });
+
+        const movies = response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return {
+            movies,
+            pages: response.data.pages,
+        };
+    }
+
+    static async getSeriesWithFilters(limit: number, page: number, genre: string = '', year: string = '', rating: string = '') {
+        const params = new URLSearchParams();
+        params.append('limit', limit.toString());
+        params.append('page', page.toString());
+        params.append('type', 'tv-series');
+        if (genre) {
+            params.append('genres.name', genre);
+        }
+        if (year) {
+            params.append('year', year);
+        }
+        if (rating) {
+            params.append('rating.kp', rating);
+        }
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength',])
         const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
             params,
             headers: {

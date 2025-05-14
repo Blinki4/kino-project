@@ -51,6 +51,7 @@ const FilmsPage = () => {
     useEffect(() => {
         fetchFilms()
     }, [page]);
+    
     return (
         error
             ?

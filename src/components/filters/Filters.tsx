@@ -39,7 +39,6 @@ const Filters: FC<FiltersProps> = ({clickHandler}) => {
         setRating(event.target.value)
     } //Вынести в сервис
 
-
     return (
         <div className={'filters'}>
             <div className={'filters__inner'}>
