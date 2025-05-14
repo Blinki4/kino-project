@@ -1,10 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {IGenre} from "../../types/IGenre.ts";
 import KinopoiskApi from "../../api/kinopoiskApi.ts";
 import Button from "../ui/Button.tsx";
 import {useFiltersStore} from "../../store/filtersStore.ts";
 
-const Filters = () => {
+interface FiltersProps {
+    clickHandler: () => void;
+}
+
+const Filters: FC<FiltersProps> = ({clickHandler}) => {
     const [genres, setGenres] = useState<IGenre[]>([]);
     const {
         genre,
@@ -87,7 +91,7 @@ const Filters = () => {
                     </select>
                 </div>
                 <div>
-                    <Button>
+                    <Button onClick={clickHandler}>
                         Применить
                     </Button>
                 </div>

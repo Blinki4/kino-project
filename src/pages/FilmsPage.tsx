@@ -19,9 +19,19 @@ const FilmsPage = () => {
     const fetchFilms = async () => {
         try {
             setIsLoading(true);
-            const response = await KinopoiskApi.getPopularMovies(24, page, genre, year, rating);
-            setMovies([...movies, ...response.movies]);
-            setTotalPages(response.pages);
+            if (genre || year || rating) {
+                const response = await KinopoiskApi.getMoviesWithFilters(24, page, genre, year, rating);
+                if (page === 1) {
+                    setMovies(response.movies);
+                } else {
+                    setMovies([...movies, ...response.movies]);
+                }
+                setTotalPages(response.pages);
+            } else {
+                const response = await KinopoiskApi.getPopularMovies(24, page);
+                setMovies([...movies, ...response.movies]);
+                setTotalPages(response.pages);
+            }
         } catch (e: unknown) {
             const error = e as Error
             setError(error.message);
@@ -30,17 +40,9 @@ const FilmsPage = () => {
         }
     }
 
-    const fetchFilmsWithFilters = () => {
-    }
-
     useObserver(lastElement, page < totalPages, isLoading, () => {
         setPage(page + 1);
     })
-
-    useEffect(() => {
-        const response = await KinopoiskApi.getPopularMovies(24, page, genre, year, rating);
-        setMovies([...movies, ...response.movies]);
-    }, [genre, year, rating]);
 
     useEffect(() => {
         fetchFilms()
@@ -52,7 +54,7 @@ const FilmsPage = () => {
             :
             <div className={'page'}>
                 <div className={'container'}>
-                    <Filters/>
+                    <Filters clickHandler={fetchFilms}/>
                 </div>
                 <div className={'container'}>
                     <div className={'films'}>
