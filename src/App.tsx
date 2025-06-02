@@ -18,6 +18,8 @@ import FilmsPage from "./pages/FilmsPage.tsx";
 import SeriesPage from "./pages/SeriesPage.tsx";
 import ProfilePage from "./pages/ProfilePage.tsx";
 import MyPage from "./pages/MyPage.tsx";
+import LoginPage from "./pages/LoginPage.tsx";
+import RegisterPage from "./pages/RegisterPage.tsx";
 
 library.add(faS, faClapperboard, faFilm, faBookmark, faLaptop, faUser, faHouse, faMagnifyingGlass, faChevronRight, faChevronLeft)
 
@@ -33,8 +35,8 @@ function App() {
                 <Route path={pageConfig.my} element={<MyPage/>}/>
                 <Route path={pageConfig.profile} element={<ProfilePage/>}/>
                 <Route path={pageConfig.movie} element={<MoviePage/>}/>
-                <Route path={pageConfig.login} element={<>LOGIN PAGE</>}/>
-                <Route path={pageConfig.register} element={<>REGISTER PAGE</>}/>
+                <Route path={pageConfig.login} element={<LoginPage/>}/>
+                <Route path={pageConfig.register} element={<RegisterPage/>}/>
             </Routes>
         </>
     )
