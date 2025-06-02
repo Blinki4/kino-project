@@ -6,7 +6,11 @@ const LoginPage: FC = () => {
     return (
         <div className={'page'}>
             <div className={'container'}>
-                LOGIN PAGE
+                <div className={'login'}>
+                    <form className={'login_form'}>
+                        <input className={'input'}/>
+                    </form>
+                </div>
             </div>
         </div>
     );

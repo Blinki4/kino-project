@@ -39,6 +39,30 @@
   }
 }
 
+.input {
+  width: 100%;
+  height: var(--input-height);
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 0.5rem;
+  outline: none;
+  border: var(--input-border);
+  border-radius: var(--border-radius-small);
+  transition: var(--transition-duration);
+
+  @include mobile {
+    height: 24px;
+  }
+
+  &:focus {
+    border: 2px solid var(--color-accent);
+  }
+
+  &::placeholder {
+    color: var(--color-gray);
+  }
+}
+
 .loader {
   display: flex;
   justify-content: center;
