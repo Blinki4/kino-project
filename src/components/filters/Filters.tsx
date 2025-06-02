@@ -72,11 +72,11 @@ const Filters: FC<FiltersProps> = ({clickHandler}) => {
                         name="rating"
                         id="rating">
                         <option className={'filters__option'} value="" defaultChecked>Любой рейтинг</option>
-                        <option className={'filters__option'} value="9">больше 9</option>
-                        <option className={'filters__option'} value="8">больше 8</option>
-                        <option className={'filters__option'} value="7">больше 7</option>
-                        <option className={'filters__option'} value="6">больше 6</option>
-                        <option className={'filters__option'} value="5">Меньше 5</option>
+                        <option className={'filters__option'} value="9-10">больше 9</option>
+                        <option className={'filters__option'} value="8-8.9">больше 8</option>
+                        <option className={'filters__option'} value="7-7.9">больше 7</option>
+                        <option className={'filters__option'} value="6-6.9">больше 6</option>
+                        <option className={'filters__option'} value="1-5">Меньше 5</option>
                     </select>
                 </div>
                 <div>
