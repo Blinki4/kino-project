@@ -41,13 +41,13 @@ const Search: FC = () => {
     return (
         <div className={'search'}>
             <div className={'search__wrapper'}>
-                    <input
-                        className={'search__input'}
-                        type="text"
-                        placeholder={'Фильмы, сериалы'}
-                        value={query}
-                        onChange={changeHandler}
-                    />
+                <input
+                    className={'search__input input'}
+                    type="text"
+                    placeholder={'Фильмы, сериалы'}
+                    value={query}
+                    onChange={changeHandler}
+                />
                 <FontAwesomeIcon onClick={search} className={'search__icon'} icon={["fas", 'magnifying-glass']}/>
             </div>
             {

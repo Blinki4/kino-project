@@ -1,0 +1,22 @@
+.login {
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+
+    &-header {
+      margin: 0;
+    }
+
+    &-button {
+      margin-top: 20px;
+    }
+  }
+
+  & div {
+    width: 50%;
+  }
+}

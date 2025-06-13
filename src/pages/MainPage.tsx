@@ -17,9 +17,11 @@ const MainPage: FC = () => {
     const fetchAll = async () => {
         try {
             setIsLoading(true)
+            const movies = await KinopoiskApi.getPopularMovies(18, 1)
+            const series = await KinopoiskApi.getPopularSeries(18, 1)
             setCarouselMovies(await KinopoiskApi.getCarouselMovies(5, 1));
-            setPopularMovies(await KinopoiskApi.getPopularMovies(18, 1));
-            setPopularSeries(await KinopoiskApi.getPopularSeries(18, 1));
+            setPopularMovies(movies.movies);
+            setPopularSeries(series.movies);
             setPopularCartoon(await KinopoiskApi.getPopularCartoons(18, 1));
         } catch (e: unknown) {
             const error = e as Error

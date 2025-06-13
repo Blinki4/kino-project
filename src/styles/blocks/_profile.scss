@@ -1,0 +1,14 @@
+.profile {
+
+  &__authorize {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__authorize-buttons {
+    display: flex;
+    column-gap: 20px;
+  }
+}

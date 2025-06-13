@@ -2,9 +2,10 @@ import axios from 'axios'
 import {IMovies} from "../types/IMovies.ts";
 import {serializeParams} from "../utils/serializeParams.ts";
 import {IMovie} from "../types/IMovie.ts";
+import {IGenre} from "../types/IGenre.ts";
 
 export default class KinopoiskApi {
-    static API_KEY: string = 'B016V3C-ZENM92A-N6JZY88-33YDKMX';
+    static API_KEY: string = 'A79KAPT-Z90MT84-NJ6H62R-H6MHJZD';
     static BASE_URL: string = 'https://api.kinopoisk.dev/v1.4';
 
     static async getCarouselMovies(limit: number, page: number) {
@@ -21,7 +22,7 @@ export default class KinopoiskApi {
             }
         });
 
-        return response.data.docs
+        return response.data.docs;
     }
 
     static async getPopularMovies(limit: number, page: number) {
@@ -38,8 +39,69 @@ export default class KinopoiskApi {
             }
         });
 
-        response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
-        return response.data.docs
+        const movies = response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return {
+            movies,
+            pages: response.data.pages,
+        };
+    }
+
+    static async getMoviesWithFilters(limit: number, page: number, genre: string = '', year: string = '', rating: string = '') {
+        const params = new URLSearchParams();
+        params.append('limit', limit.toString());
+        params.append('page', page.toString());
+        params.append('type', 'movie');
+        if (genre) {
+            params.append('genres.name', genre);
+        }
+        if (year) {
+            params.append('year', year);
+        }
+        if (rating) {
+            params.append('rating.kp', rating);
+        }
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength',])
+        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+            params,
+            headers: {
+                'X-API-KEY': this.API_KEY,
+            }
+        });
+
+        const movies = response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return {
+            movies,
+            pages: response.data.pages,
+        };
+    }
+
+    static async getSeriesWithFilters(limit: number, page: number, genre: string = '', year: string = '', rating: string = '') {
+        const params = new URLSearchParams();
+        params.append('limit', limit.toString());
+        params.append('page', page.toString());
+        params.append('type', 'tv-series');
+        if (genre) {
+            params.append('genres.name', genre);
+        }
+        if (year) {
+            params.append('year', year);
+        }
+        if (rating) {
+            params.append('rating.kp', rating);
+        }
+        serializeParams(params, 'notNullFields', ['name', 'poster.url', 'backdrop.url', 'rating.kp', 'movieLength',])
+        const response = await axios.get<IMovies>(this.BASE_URL + '/movie', {
+            params,
+            headers: {
+                'X-API-KEY': this.API_KEY,
+            }
+        });
+
+        const movies = response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return {
+            movies,
+            pages: response.data.pages,
+        };
     }
 
     static async getPopularSeries(limit: number, page: number) {
@@ -55,8 +117,11 @@ export default class KinopoiskApi {
             }
         });
 
-        response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
-        return response.data.docs
+        const movies = response.data.docs.sort((a, b) => a.rating.kp < b.rating.kp ? 1 : -1)
+        return {
+            movies,
+            pages: response.data.pages,
+        };
     }
 
     static async getPopularCartoons(limit: number, page: number) {
@@ -99,5 +164,18 @@ export default class KinopoiskApi {
         });
 
         return response.data.docs;
+    }
+
+    static async getGenres() {
+        const response = await axios.get<IGenre[]>('https://api.kinopoisk.dev/v1/movie/possible-values-by-field', {
+            params: {
+                field: 'genres.name'
+            },
+            headers: {
+                'X-API-KEY': this.API_KEY,
+            }
+        });
+
+        return response.data;
     }
 }

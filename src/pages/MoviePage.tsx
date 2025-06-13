@@ -18,7 +18,7 @@ const MoviePage: FC = () => {
     const fetchAll = async () => {
         try {
             setIsLoading(true)
-            setMovie(await KinopoiskApi.getMovie(params.id || '666'))
+            setMovie(await KinopoiskApi.getMovie(params.id || '666')) //Пасхалочка
         } catch (e: unknown) {
             const error = e as Error
             setError(error.message)

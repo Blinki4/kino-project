@@ -46,58 +46,91 @@ const MovieItemPage: FC<MoviePageItemProps> = ({movie}) => {
                 <div className={'movie__short-description'}>{movie?.shortDescription}</div>
                 <div className={'movie__info-title'}>О фильме</div>
                 <div className={'about'}>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Год производства</div>
-                        <div className={'about__value'}>{movie?.year}</div>
-                    </div>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Страна</div>
-                        <div className={'about__value'}>{movie?.countries.map(country =>
-                            `${country.name} `
-                        )}</div>
-                    </div>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Жанр</div>
-                        <div className={'about__value'}>{movie?.genres.map(genre =>
-                            `${genre.name} `
-                        )}</div>
-                    </div>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Слоган</div>
-                        <div className={'about__value'}>{movie?.slogan || '—'}</div>
-                    </div>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Возраст</div>
-                        <div className={'about__value'}>{`${movie?.ageRating}+`}</div>
-                    </div>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Премьера</div>
-                        <div className={'about__value'}>{getPremierDate(movie?.premiere?.world?.toString())}</div>
-                    </div>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Длительность</div>
-                        <div className={'about__value'}>{movieLength}</div>
-                    </div>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Бюджет</div>
-                        <div
-                            className={'about__value'}>
-                            {movie?.budget?.value?.toLocaleString('en-US', {
-                                style: "currency",
-                                currency: 'USD'
-                            })}
+                    {
+                        movie?.year &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Год производства</div>
+                            <div className={'about__value'}>{movie?.year}</div>
                         </div>
-                    </div>
-                    <div className={'about__row'}>
-                        <div className={'about__name'}>Сборы</div>
-                        <div
-                            className={'about__value'}>
-                            {movie?.fees?.world?.value?.toLocaleString('en-US', {
-                                style: "currency",
-                                currency: 'USD'
-                            })}
+                    }
+                    {
+                        movie?.countries &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Страна</div>
+                            <div className={'about__value'}>{movie?.countries.map(country =>
+                                `${country.name} `
+                            )}</div>
                         </div>
-                    </div>
+                    }
+                    {
+                        movie?.genres &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Жанр</div>
+                            <div className={'about__value'}>{movie?.genres.map(genre =>
+                                `${genre.name} `
+                            )}</div>
+                        </div>
+                    }
+                    {
+                        movie?.slogan &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Слоган</div>
+                            <div className={'about__value'}>{movie?.slogan || '—'}</div>
+                        </div>
+                    }
+                    {
+                        movie?.ageRating &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Возраст</div>
+                            <div className={'about__value'}>{`${movie?.ageRating}+`}</div>
+                        </div>
+                    }
+                    {
+                        movie?.premiere &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Премьера</div>
+                            <div className={'about__value'}>{getPremierDate(movie?.premiere?.world?.toString())}</div>
+                        </div>
+                    }
+                    {
+                        movie?.movieLength &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Длительность</div>
+                            <div className={'about__value'}>{movieLength}</div>
+                        </div>
+                    }
+                    {
+                        movie?.budget &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Бюджет</div>
+                            <div
+                                className={'about__value'}>
+                                {movie?.budget?.value?.toLocaleString('en-US', {
+                                    style: "currency",
+                                    currency: 'USD'
+                                })}
+                            </div>
+                        </div>
+                    }
+                    {
+                        movie?.fees &&
+                        <div className={'about__row'}>
+                            <div className={'about__name'}>Сборы</div>
+                            <div
+                                className={'about__value'}>
+                                {movie?.fees?.world?.value?.toLocaleString('en-US', {
+                                        style: 'currency',
+                                        currency: 'USD'
+                                    })
+                                    ||
+                                    movie?.fees?.russia.value.toLocaleString('ru-Ru', {
+                                        style: 'currency',
+                                        currency: 'Rub'
+                                    })
+                                }
+                            </div>
+                        </div>
+                    }
                 </div>
                 <div className={'movie__info-title'}>Описание</div>
                 <div className={'movie__description'}>

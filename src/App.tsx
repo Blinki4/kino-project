@@ -14,6 +14,12 @@ import {Route, Routes} from "react-router-dom";
 import {pageConfig} from "./router/pagesConfig.ts";
 import MainPage from "./pages/MainPage.tsx";
 import MoviePage from "./pages/MoviePage.tsx";
+import FilmsPage from "./pages/FilmsPage.tsx";
+import SeriesPage from "./pages/SeriesPage.tsx";
+import ProfilePage from "./pages/ProfilePage.tsx";
+import MyPage from "./pages/MyPage.tsx";
+import LoginPage from "./pages/LoginPage.tsx";
+import RegisterPage from "./pages/RegisterPage.tsx";
 
 library.add(faS, faClapperboard, faFilm, faBookmark, faLaptop, faUser, faHouse, faMagnifyingGlass, faChevronRight, faChevronLeft)
 
@@ -24,11 +30,13 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path={pageConfig.main} element={<MainPage/>}/>
-                <Route path={pageConfig.films} element={<>FILMS PAGE</>}/>
-                <Route path={pageConfig.series} element={<>SERIES PAGE</>}/>
-                <Route path={pageConfig.my} element={<>MY PAGE</>}/>
-                <Route path={pageConfig.profile} element={<>PROFILE PAGE</>}/>
+                <Route path={pageConfig.films} element={<FilmsPage/>}/>
+                <Route path={pageConfig.series} element={<SeriesPage/>}/>
+                <Route path={pageConfig.my} element={<MyPage/>}/>
+                <Route path={pageConfig.profile} element={<ProfilePage/>}/>
                 <Route path={pageConfig.movie} element={<MoviePage/>}/>
+                <Route path={pageConfig.login} element={<LoginPage/>}/>
+                <Route path={pageConfig.register} element={<RegisterPage/>}/>
             </Routes>
         </>
     )
